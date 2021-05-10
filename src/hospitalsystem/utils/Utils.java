@@ -24,10 +24,6 @@ public class Utils<T> {
 
     private List<Pane> panesList;
 
-    private double xOffset = 0;
-    private double yOffset = 0;
-
-
 
     // ======= WINDOW FUNCTIONS =======
 
@@ -82,30 +78,6 @@ public class Utils<T> {
         return (Stage) ((Node) event.getSource()).getScene().getWindow();
     }
 
-    public void maximize(ActionEvent event) {
-        Stage stage = getStageFromEvent(event);
-
-        stage.setMaximized(!stage.isFullScreen());
-    }
-
-    public void minimize(ActionEvent event) {
-        getStageFromEvent(event).setIconified(true);
-    }
-
-    public void moveWindow(Parent root, Stage stage) {
-        // Grab root
-        root.setOnMousePressed(event -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-
-        // Move around
-        root.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - xOffset);
-            stage.setY(event.getScreenY() - yOffset);
-        });
-    }
-
     // ======= ACADEMIC TOPICS =======
 
     public void notFoundMessage(Pane pane, Text notFoundField, String entity) {
@@ -134,8 +106,8 @@ public class Utils<T> {
         // Get id
         String id = searchField.getText().trim();
         System.out.println("id: " + id);
+        System.out.println("service: " + service);
         // Search by id
-
         return service.find(id);
     }
 
@@ -181,22 +153,7 @@ public class Utils<T> {
         alert.initOwner(root.getScene().getWindow());
         alert.show();
     }
-/*
-    public void showAllocatedDisciplineAlert(Discipline discipline) {
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle("Disciplina alocada!");
-        alert.setHeaderText("");
 
-        StringBuilder classes = new StringBuilder();
-        for (String classCode : discipline.getAllocatedClasses()) {
-            classes.append("\t").append(classCode).append("\n");
-        }
-        alert.setContentText("Não é possível remover esta disciplina pois ela está alocada nas seguintes turmas:\n" + classes);
-
-        alert.initOwner(root.getScene().getWindow());
-        alert.show();
-    }
-*/
     public void showErrorWhileReadingSaveFileAlert() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Erro ao recuperar os dados!");
@@ -206,19 +163,7 @@ public class Utils<T> {
         alert.show();
     }
 
-    public void showAllocatedClassAlert() {
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle("Classe alocada!");
-        alert.setHeaderText("");
-        alert.setContentText("Não é possível remover esta classe pois ela tem professor e/ou alunos alocados.");
-        alert.initOwner(root.getScene().getWindow());
-        alert.show();
-    }
-
-
-
     // Random
-
     public void showModifydRegisterAlertToUser(String entity) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Cadastro alterado");
@@ -229,7 +174,6 @@ public class Utils<T> {
     }
 
     // ======= HELPER METHODS =======
-
     public void showPane(String id) {
         panesList.forEach(pane -> pane.setVisible(id.equals(pane.getId())));
     }

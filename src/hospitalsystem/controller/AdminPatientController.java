@@ -73,9 +73,6 @@ public class AdminPatientController  implements Initializable {
     @FXML
     private TextField emailRegister;
 
-
-
-
     // ======= STANDART =======
 
     @FXML
@@ -100,7 +97,6 @@ public class AdminPatientController  implements Initializable {
     private void showsolicitationPane() {
         utils.showPane("solicitationPane");
     }
-
     @FXML
     private void showRegisterPane() {
         utils.showPane("registerPane");
@@ -156,7 +152,6 @@ public class AdminPatientController  implements Initializable {
     // ======= HOSPITAL TOPICS =======
 
     // Register
-
     private void formatTextField(TextField textField, String mask, String validCharacters) {
         academiccontrolsystem.utils.TextFieldFormatter textFieldFormatter = new academiccontrolsystem.utils.TextFieldFormatter();
         textFieldFormatter.setMask(mask);
@@ -171,7 +166,6 @@ public class AdminPatientController  implements Initializable {
             if (isInputValid(cpfRegister, nameRegister, emailRegister)) {
 
                 Patient patient = setPatientAttributes(cpfRegister, nameRegister,  phoneNumberRegister, emailRegister);
-
 
                 Exception registryException = null;
                 try {

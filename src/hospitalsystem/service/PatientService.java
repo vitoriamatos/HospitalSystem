@@ -23,6 +23,9 @@ public class PatientService implements HospitalTopics<Patient>, Serializable {
     protected PatientService(){}
 
 
+    public static String getName(){
+        return "PatientService";
+    }
 
     public static PatientService getInstance() {
         if (singleton == null){
@@ -40,7 +43,7 @@ public class PatientService implements HospitalTopics<Patient>, Serializable {
     @Override
     public Patient find(String code) {
         for (Patient patient : patients) {
-            if (code.equals(patient.getCpf())) {
+            if (code.equals(patient.getCode())) {
                 System.out.println("paciente code:" + patient.getCode());
                 return patient;
             }

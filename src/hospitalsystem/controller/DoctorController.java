@@ -17,11 +17,6 @@ public class DoctorController {
 
 
     // ======= MODULES FUNCTIONS =======
-
-
-
-
-
     private void showModule(ActionEvent event, String fxmlName) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/" + fxmlName + ".fxml"));
 
