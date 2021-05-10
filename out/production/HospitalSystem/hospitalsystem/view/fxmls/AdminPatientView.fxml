@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" style="-fx-background-color: #00000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalsystem.controller.AdminPatientController">
+   <VBox prefHeight="682.0" prefWidth="238.0">
+      <children>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         <Button mnemonicParsing="false" onAction="#showRegisterPane" prefHeight="37.0" prefWidth="254.0" text="Cadastrar" />
+         <Button mnemonicParsing="false" onAction="#showsolicitationPane" prefHeight="38.0" prefWidth="238.0" text="Solicitações" />
+         <Button mnemonicParsing="false" onAction="#showListAllPane" prefHeight="42.0" prefWidth="238.0" text="Pacientes" />
+         <Button mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="238.0" text="Voltar" />
+      </children>
+   </VBox>
+   <Pane fx:id="solicitationPane" layoutX="242.0" layoutY="-6.0" prefHeight="682.0" prefWidth="576.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="266.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOLICITAÇÕES" />
+         <TableView layoutX="54.0" layoutY="259.0" prefHeight="366.0" prefWidth="469.0">
+           <columns>
+             <TableColumn prefWidth="122.39996337890625" text="C1" />
+             <TableColumn prefWidth="136.00003051757812" text="C2" />
+           </columns>
+         </TableView>
+      </children>
+   </Pane>
+   <Pane fx:id="listAllPane" layoutX="242.0" prefHeight="682.0" prefWidth="576.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="266.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Pacientes" wrappingWidth="180.70977783203125" />
+         <TableView fx:id="patientTable" layoutX="38.0" layoutY="148.0" prefHeight="481.0" prefWidth="523.0">
+           <columns>
+             <TableColumn fx:id="nameColumn" prefWidth="256.7999572753906" text="NOME" />
+             <TableColumn fx:id="emailColumn" prefWidth="265.60009765625" text="EMAIL" />
+           </columns>
+         </TableView>
+      </children>
+   </Pane>
+   <Pane fx:id="registerPane" layoutX="241.0" prefHeight="682.0" prefWidth="569.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="246.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRAR" wrappingWidth="157.33676147460938" />
+         <TextField fx:id="nameRegister" layoutX="76.0" layoutY="178.0" onKeyReleased="#cpfFieldRegister" prefHeight="28.0" prefWidth="393.0" promptText="Nome" />
+         <TextField fx:id="cpfRegister" layoutX="76.0" layoutY="231.0" onKeyReleased="#cpfFieldRegister" prefHeight="25.0" prefWidth="200.0" promptText="CPF" />
+         <TextField fx:id="phoneNumberRegister" layoutX="302.0" layoutY="231.0" onKeyReleased="#phoneNumberFieldRegister" prefHeight="25.0" prefWidth="167.0" promptText="Telefone" />
+         <Button layoutX="243.0" layoutY="406.0" mnemonicParsing="false" onAction="#register" text="CADASTRAR" />
+         <Text fx:id="registerOutput" layoutX="176.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+         <TextField fx:id="emailRegister" layoutX="76.0" layoutY="277.0" prefHeight="25.0" prefWidth="200.0" promptText="Email" />
+      </children>
+   </Pane>
+</AnchorPane>
