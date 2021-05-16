@@ -1,4 +1,4 @@
-package hospitalsystem.model;
+package hospitalsystem.model.entities;
 
 import java.io.Serializable;
 

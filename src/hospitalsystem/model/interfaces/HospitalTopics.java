@@ -1,4 +1,4 @@
-package hospitalsystem.interfaces;
+package hospitalsystem.model.interfaces;
 
 
 import hospitalsystem.exceptions.DuplicatedEntryException;

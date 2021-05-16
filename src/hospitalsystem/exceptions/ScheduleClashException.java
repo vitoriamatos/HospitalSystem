@@ -1,6 +1,6 @@
 package hospitalsystem.exceptions;
 
-import hospitalsystem.enums.Schedule;
+import hospitalsystem.model.enums.Schedule;
 
 /**
  * <p>Desired schedule spot is alredy taken.</p>

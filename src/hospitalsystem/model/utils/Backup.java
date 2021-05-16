@@ -1,9 +1,9 @@
-package hospitalsystem.utils;
+package hospitalsystem.model.utils;
 
 
 
-import hospitalsystem.interfaces.HospitalTopics;
-import hospitalsystem.service.PatientService;
+import hospitalsystem.model.interfaces.HospitalTopics;
+import hospitalsystem.model.service.PatientService;
 
 import javax.swing.*;
 import java.io.*;

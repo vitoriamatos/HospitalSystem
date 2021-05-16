@@ -1,9 +1,9 @@
 package hospitalsystem.controller;
 
-import hospitalsystem.model.Patient;
+import hospitalsystem.model.entities.Patient;
 
-import hospitalsystem.service.PatientService;
-import hospitalsystem.utils.Utils;
+import hospitalsystem.model.service.PatientService;
+import hospitalsystem.model.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 

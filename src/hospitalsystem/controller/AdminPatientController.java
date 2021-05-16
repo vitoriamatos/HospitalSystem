@@ -1,11 +1,11 @@
 package hospitalsystem.controller;
 
 import hospitalsystem.exceptions.DuplicatedEntryException;
-import hospitalsystem.model.Patient;
-import hospitalsystem.service.PatientService;
-import hospitalsystem.utils.Backup;
-import hospitalsystem.utils.Utils;
-import hospitalsystem.utils.Validation;
+import hospitalsystem.model.entities.Patient;
+import hospitalsystem.model.service.PatientService;
+import hospitalsystem.model.utils.Backup;
+import hospitalsystem.model.utils.Utils;
+import hospitalsystem.model.utils.Validation;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,8 +22,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

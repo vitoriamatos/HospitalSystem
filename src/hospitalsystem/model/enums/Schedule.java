@@ -1,4 +1,4 @@
-package hospitalsystem.enums;
+package hospitalsystem.model.enums;
 
 
 import java.util.Map;

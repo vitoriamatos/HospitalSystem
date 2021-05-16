@@ -1,4 +1,4 @@
-package hospitalsystem.utils;
+package hospitalsystem.model.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;

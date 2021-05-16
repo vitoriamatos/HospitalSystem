@@ -1,10 +1,10 @@
-package hospitalsystem.service;
+package hospitalsystem.model.service;
 
 
 import hospitalsystem.exceptions.DuplicatedEntryException;
 import hospitalsystem.exceptions.MissingEntryException;
-import hospitalsystem.interfaces.HospitalTopics;
-import hospitalsystem.model.Patient;
+import hospitalsystem.model.interfaces.HospitalTopics;
+import hospitalsystem.model.entities.Patient;
 
 import java.io.Serializable;
 import java.util.ArrayList;

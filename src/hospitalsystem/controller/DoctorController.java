@@ -1,9 +1,7 @@
 package hospitalsystem.controller;
 
-import hospitalsystem.utils.Utils;
-import hospitalsystem.utils.Utils;
+import hospitalsystem.model.utils.Utils;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;

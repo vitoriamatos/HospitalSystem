@@ -1,9 +1,7 @@
 package hospitalsystem.controller;
 
-import hospitalsystem.service.PatientService;
-import hospitalsystem.utils.Backup;
-import hospitalsystem.utils.Utils;
-import hospitalsystem.utils.Utils;
+import hospitalsystem.model.service.PatientService;
+import hospitalsystem.model.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
