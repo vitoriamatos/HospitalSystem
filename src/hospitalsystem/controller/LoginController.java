@@ -40,19 +40,58 @@ public class LoginController implements Initializable {
     private void back(ActionEvent event) throws IOException {
         utils.back(root, event);
     }
+    @FXML
+
+    void viewFind(ActionEvent event) throws IOException {
+        Patient patient = utils.search(patientService, passwordArea);
+
+        if(patient != null) {
+            PatientController pc = new PatientController(patient);
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/PatientView.fxml"));
+            fxmlloader.setController(pc);
+
+            callStage(event, fxmlloader);
+        }else{
+            utils.showPacientNotFound("Paciente");
+            }
+    }
 
 
+    public void callStage(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.setTitle("Simulation");
+        stage.setScene(new Scene(fxmlloader.load()));
+
+        stage.show();
+    }
+/*
     @FXML
     void viewFind(ActionEvent event) throws IOException {
 
     Patient patient = utils.search(patientService, passwordArea);
 
         if(patient != null){
-            showModule(event, "PatientView");
+            PatientController pc = new PatientController(patient);
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/PatientView.fxml"));
+            fxmlloader.setController(pc);
+
+
+
+            try {
+                //pc.setContent((Node) fxmlloader.load());
+                 showModule(event, fxmlloader );
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+
         }else{
-            utils.showPacientNotFound("Patient");
+            utils.showPacientNotFound("Paciente");
         }
     }
+
+
+
 
 
 
@@ -62,15 +101,15 @@ public class LoginController implements Initializable {
 
 
     // ======= MODULES FUNCTIONS =======
-    private void showModule(ActionEvent event, String fxmlName) throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/" + fxmlName + ".fxml"));
+    private void showModule(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
+
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         stage.setScene(new Scene(fxmlloader.load()));
         stage.show();
     }
-
+*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         patientService = PatientService.getInstance();

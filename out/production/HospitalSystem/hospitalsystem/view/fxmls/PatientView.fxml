@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" style="-fx-background-color: #00000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalsystem.controller.PatientController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" style="-fx-background-color: #00000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <VBox prefHeight="682.0" prefWidth="236.0">
       <children>
          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
@@ -25,18 +25,24 @@
          <TextField layoutX="150.0" layoutY="181.0" prefHeight="25.0" prefWidth="200.0" promptText="ID do exame" />
       </children>
    </Pane>
-   <Pane fx:id="schedulePane" layoutX="242.0" prefHeight="682.0" prefWidth="578.0" style="-fx-background-color: #f5f5f5;">
-      <children>
-         <Text layoutX="241.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MARCAR EXAMES" />
-      </children>
-   </Pane>
    <Pane fx:id="regiterDataPane" layoutX="246.0" layoutY="1.0" prefHeight="671.0" prefWidth="570.0" style="-fx-background-color: #f5f5f5;">
       <children>
          <Text layoutX="214.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DADOS CADASTRAIS" />
-         <TextField fx:id="nameRegister" layoutX="46.0" layoutY="154.0" prefHeight="25.0" prefWidth="447.0" promptText="Nome" />
-         <TextField fx:id="cpfRegister" layoutX="46.0" layoutY="211.0" prefHeight="25.0" prefWidth="218.0" promptText="cpf" />
-         <TextField fx:id="phoneNumberRegister" layoutX="284.0" layoutY="211.0" prefHeight="25.0" prefWidth="209.0" promptText="telefone" />
-         <TextField fx:id="emailRegister" layoutX="46.0" layoutY="264.0" prefHeight="25.0" prefWidth="218.0" promptText="email" />
+         <TextField fx:id="nameRegister" editable="false" layoutX="46.0" layoutY="154.0" prefHeight="25.0" prefWidth="447.0" promptText="Nome" />
+         <TextField fx:id="cpfRegister" editable="false" layoutX="46.0" layoutY="211.0" prefHeight="25.0" prefWidth="218.0" promptText="cpf" />
+         <TextField fx:id="phoneNumberRegister" editable="false" layoutX="284.0" layoutY="211.0" prefHeight="25.0" prefWidth="209.0" promptText="telefone" />
+         <TextField fx:id="emailRegister" editable="false" layoutX="46.0" layoutY="264.0" prefHeight="25.0" prefWidth="218.0" promptText="email" />
+      </children>
+   </Pane>
+   <Pane fx:id="schedulePane" layoutX="242.0" prefHeight="682.0" prefWidth="578.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="241.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MARCAR EXAMES" />
+         <Button layoutX="224.0" layoutY="322.0" mnemonicParsing="false" onAction="#scheduleExame" prefHeight="38.0" prefWidth="129.0" text="Marcar" />
+      </children>
+   </Pane>
+   <Pane fx:id="homePane" layoutX="266.0" prefHeight="682.0" prefWidth="557.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="213.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BEM-VINDO" />
       </children>
    </Pane>
 </AnchorPane>

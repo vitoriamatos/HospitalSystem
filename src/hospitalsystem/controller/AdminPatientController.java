@@ -1,7 +1,9 @@
 package hospitalsystem.controller;
 
 import hospitalsystem.exceptions.DuplicatedEntryException;
+import hospitalsystem.model.entities.Exames;
 import hospitalsystem.model.entities.Patient;
+import hospitalsystem.model.service.ExamesService;
 import hospitalsystem.model.service.PatientService;
 import hospitalsystem.model.utils.Backup;
 import hospitalsystem.model.utils.Utils;
@@ -31,6 +33,7 @@ public class AdminPatientController  implements Initializable {
 
     private final Utils<?> utils = new Utils<>();
     private PatientService patientService;
+    private ExamesService examesService;
 
     // ======== MAIN PANES =======
     @FXML
@@ -55,6 +58,20 @@ public class AdminPatientController  implements Initializable {
     private TableColumn<Patient, String> emailColumn;
     @FXML
     private TableColumn<Patient, String> nameColumn;
+
+    // ======== SOLICITATION =======
+
+    @FXML
+    private TableView<Exames> solicitationTable;
+    @FXML
+    private TableColumn<Exames, String> solicitationColumn;
+    @FXML
+    private TableColumn<Exames, String> patientColumn;
+    @FXML
+    private TableColumn<Exames, String> cpfColumn;
+    @FXML
+    private Text examesid;
+
 
     // ====== WINDOWS =======
 
@@ -94,15 +111,18 @@ public class AdminPatientController  implements Initializable {
     @FXML
     private void showsolicitationPane() {
         utils.showPane("solicitationPane");
+        populateTableSolicitation();
     }
     @FXML
     private void showRegisterPane() {
         utils.showPane("registerPane");
+
     }
     @FXML
     private void showListAllPane() {
         utils.showPane("listAllPane");
         populateTable();
+
     }
 
     // ======= FORMAT AND VALIDATE FUNCTIONS =======
@@ -179,8 +199,15 @@ public class AdminPatientController  implements Initializable {
             utils.showMissingFieldAlert();
         }
     }
+
+
+
     private Patient setPatientAttributes(TextField cpf, TextField name, TextField phoneNumber,TextField emailRegister) {
-        Patient patient = new Patient(cpf.getText().trim());
+         String code;
+         code = cpf.getText().trim();
+
+
+        Patient patient = new Patient(code.substring(0, 3));
         patient.setName(utils.toTitleCase(utils.formatName(name.getText())));
         patient.setCpf(cpf.getText().trim());
         patient.setPhoneNumber(phoneNumber.getText().trim());
@@ -191,13 +218,25 @@ public class AdminPatientController  implements Initializable {
 
 
     private void populateTable() {
-        // Associate columns to Student attributes
+        // Associate columns to Patients attributes
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         // Fill table
         patientTable.setItems(FXCollections.observableArrayList(patientService.list()));
+    }
+
+
+    private void populateTableSolicitation() {
+        // Associate columns to Exames attributes
+        solicitationColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        patientColumn.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+        cpfColumn.setCellValueFactory(new PropertyValueFactory<>("patientCpf"));
+
+
+        // Fill table
+        solicitationTable.setItems(FXCollections.observableArrayList(examesService.list()));
     }
 
     // ======= HELPER METHODS =======
@@ -224,6 +263,7 @@ public class AdminPatientController  implements Initializable {
         // Load instance
         Backup.restore();
         patientService = PatientService.getInstance();
+        examesService = ExamesService.getInstance();
     }
 
 }

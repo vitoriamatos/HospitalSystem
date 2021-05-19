@@ -1,5 +1,9 @@
 package hospitalsystem.controller;
 
+import hospitalsystem.exceptions.DuplicatedEntryException;
+import hospitalsystem.model.entities.Exames;
+import hospitalsystem.model.entities.Patient;
+import hospitalsystem.model.service.ExamesService;
 import hospitalsystem.model.service.PatientService;
 import hospitalsystem.model.utils.Utils;
 import javafx.event.ActionEvent;
@@ -16,19 +20,21 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PatientController implements Initializable {
 
     private final Utils<?> utils = new Utils<>();
     private PatientService patientService;
+    public ExamesService examesService;
+
+    Patient patientMain;
     // ======== MAIN PANES =======
     @FXML
     private AnchorPane root;
     // ======== register =======
+    @FXML
+    private Pane homePane;
     @FXML
     private Pane regiterDataPane;
     @FXML
@@ -47,6 +53,13 @@ public class PatientController implements Initializable {
     @FXML
     private TextField emailRegister;
 
+    // ======= CONSTRUCTOR =======
+
+
+    public PatientController(Patient patientMain) {
+        this.patientMain = patientMain;
+    }
+
     // ======= STANDART =======
     @FXML
     private void back(ActionEvent event) throws IOException {
@@ -56,6 +69,11 @@ public class PatientController implements Initializable {
     @FXML
     private void showRegisterDataView() {
         utils.showPane("regiterDataPane");
+        viewFind();
+    }
+    @FXML
+    private void showHomeView() {
+        utils.showPane("homePane");
     }
     @FXML
     private void showExameView() {
@@ -65,6 +83,28 @@ public class PatientController implements Initializable {
     private void scheduleExameView() {
         utils.showPane("schedulePane");
     }
+
+    // ======= PATIENTS FUNCTIONS =======
+    @FXML
+    private void scheduleExame() {
+        Random random = new Random();
+        int numero = random.nextInt(100);
+        String code = String.valueOf(numero);
+        Exames exame = new Exames(code);
+
+        exame.setName("Exame de sangue");
+        exame.setPatient(patientMain);
+
+        try {
+            examesService.register(exame);
+        } catch (DuplicatedEntryException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
     // ======= MODULES FUNCTIONS =======
     private void showModule(ActionEvent event, String fxmlName) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/" + fxmlName + ".fxml"));
@@ -75,7 +115,13 @@ public class PatientController implements Initializable {
         stage.show();
     }
     // ======= BACKUP DATA METHODS =======
-    private void viewFind(String id) {
+    private void viewFind() {
+        //setTextFieldsWithAttributes(student, cpf, name, birthDate, email, phoneNumber, address);
+    nameRegister.setText(patientMain.getName());
+    cpfRegister.setText(patientMain.getCpf());
+    phoneNumberRegister.setText(patientMain.getPhoneNumber());
+    emailRegister.setText(patientMain.getEmail());
+
 
     }
     @Override
@@ -85,12 +131,13 @@ public class PatientController implements Initializable {
 
         // Load and control background panes view
         List<Pane> panesList = new ArrayList<>(
-                Arrays.asList( regiterDataPane, examePane,schedulePane));
+                Arrays.asList( homePane, regiterDataPane, examePane,schedulePane));
         utils.setPanesList(panesList);
-        //showRegisterPane();
+        showHomeView();
 
         // Load instance
         //Backup.restore();
         patientService = PatientService.getInstance();
+        examesService = ExamesService.getInstance();
     }
 }

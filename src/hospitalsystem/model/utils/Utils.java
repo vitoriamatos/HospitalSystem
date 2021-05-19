@@ -126,11 +126,11 @@ public class Utils<T> {
         alert.show();
     }
     public void showPacientNotFound(String entity) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Úsuario não encontrado");
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Usuario nao encontrado");
         alert.setHeaderText("");
-        alert.setContentText(toTitleCase(entity) + " não encontrado, favor solicitar cadastro.");
-        alert.initOwner(root.getScene().getWindow());
+        alert.setContentText(toTitleCase(entity) + " nao encontrado, favor solicitar cadastro.");
+        //alert.initOwner(root.getScene().getWindow());
         alert.show();
     }
 

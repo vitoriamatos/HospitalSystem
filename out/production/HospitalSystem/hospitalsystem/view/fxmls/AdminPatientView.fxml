@@ -20,17 +20,6 @@
          <Button mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="238.0" text="Voltar" />
       </children>
    </VBox>
-   <Pane fx:id="solicitationPane" layoutX="242.0" layoutY="-6.0" prefHeight="682.0" prefWidth="576.0" style="-fx-background-color: #f5f5f5;">
-      <children>
-         <Text layoutX="266.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOLICITAÇÕES" />
-         <TableView layoutX="54.0" layoutY="259.0" prefHeight="366.0" prefWidth="469.0">
-           <columns>
-             <TableColumn prefWidth="122.39996337890625" text="C1" />
-             <TableColumn prefWidth="136.00003051757812" text="C2" />
-           </columns>
-         </TableView>
-      </children>
-   </Pane>
    <Pane fx:id="listAllPane" layoutX="242.0" prefHeight="682.0" prefWidth="576.0" style="-fx-background-color: #f5f5f5;">
       <children>
          <Text layoutX="266.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Pacientes" wrappingWidth="180.70977783203125" />
@@ -38,6 +27,18 @@
            <columns>
              <TableColumn fx:id="nameColumn" prefWidth="256.7999572753906" text="NOME" />
              <TableColumn fx:id="emailColumn" prefWidth="265.60009765625" text="EMAIL" />
+           </columns>
+         </TableView>
+      </children>
+   </Pane>
+   <Pane fx:id="solicitationPane" layoutX="242.0" layoutY="-6.0" prefHeight="682.0" prefWidth="576.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="266.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOLICITAÇÕES" />
+         <TableView fx:id="solicitationTable" layoutX="54.0" layoutY="158.0" prefHeight="391.0" prefWidth="472.0">
+           <columns>
+             <TableColumn fx:id="solicitationColumn" prefWidth="140.79998779296875" text="Solicitação" />
+             <TableColumn fx:id="patientColumn" prefWidth="128.80001831054688" text="Paciente" />
+               <TableColumn fx:id="cpfColumn" prefWidth="111.99993896484375" text="CPF" />
            </columns>
          </TableView>
       </children>
