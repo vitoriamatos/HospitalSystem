@@ -1,9 +1,11 @@
 package hospitalsystem.model.entities;
+import java.io.Serializable;
 import java.util.List;
 
-public class Doctor extends Person  {
+public class Doctor extends Person implements Serializable {
 
-    private static final long serialVersionUID = -8583777517936355438L;
+
+    private static final long serialVersionUID = -413292957083223774L;
 
     private List<String> allocatedClasses;
     private Patient patients;

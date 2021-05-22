@@ -19,7 +19,7 @@ public class InicialController {
 
     @FXML
     void doctorModule(ActionEvent event) throws IOException {
-        showModule(event, "DoctorView");
+        showModule(event, "LoginDoctorView");
     }
 
     @FXML

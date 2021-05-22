@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginPatientController implements Initializable {
 
     private final Utils<Patient> utils = new Utils<>();
     private PatientService patientService;

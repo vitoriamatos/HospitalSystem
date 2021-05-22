@@ -1,11 +1,12 @@
 package hospitalsystem.model.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Exames {
+public class Exames implements Serializable {
 
-    private static final long serialVersionUID = -8583777517936355438L;
 
+    private static final long serialVersionUID = 4276128555363091686L;
 
     private List<String> allocatedClasses;
     private String name;
