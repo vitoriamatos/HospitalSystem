@@ -76,8 +76,8 @@ public class Backup {
 
         PatientService patientService = PatientService.getInstance();
 
-        return new ArrayList<>(Arrays.asList(patientService));
-
+      //  return new ArrayList<>(Arrays.asList(patientService));
+        return new ArrayList<>(patientService.list());
 
       //   return null;
     }
@@ -94,8 +94,7 @@ public class Backup {
         try (ObjectInputStream reader = new ObjectInputStream(new FileInputStream(getBackupFile()))) {
 
             // Read save file
-            List<?> database = (List<?>) reader.readObject();
-
+               List<?> database = (List<?>) reader.readObject();
             // Restore information
             for (Object service : database) {
                 if (service instanceof HospitalTopics<?>) {
