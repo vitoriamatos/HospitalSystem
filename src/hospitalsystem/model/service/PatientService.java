@@ -51,6 +51,17 @@ public class PatientService implements HospitalTopics<Patient>, Serializable {
         return null;
     }
 
+
+    public Patient findCpf(String code) {
+        for (Patient patient : patients) {
+            if (code.equals(patient.getCpf())) {
+                System.out.println("paciente code:" + patient.getCpf());
+                return patient;
+            }
+        }
+        return null;
+    }
+
     @Override
     public List<Patient> list() {
         return patients;
@@ -70,6 +81,7 @@ public class PatientService implements HospitalTopics<Patient>, Serializable {
 
     @Override
     public void register(Patient patient) throws DuplicatedEntryException {
+
         if (patients.contains(patient)) {
         	throw new DuplicatedEntryException(patient);
         } else {

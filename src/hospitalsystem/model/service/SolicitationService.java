@@ -12,8 +12,8 @@ import java.util.List;
 
 public class SolicitationService implements HospitalTopics<Patient>, Serializable {
 
-    private static final long serialVersionUID = -1990993300966043997L;
 
+    private static final long serialVersionUID = -3784520240477941771L;
     private final List<Patient> patients = new ArrayList<>();
 
     private static SolicitationService singleton;

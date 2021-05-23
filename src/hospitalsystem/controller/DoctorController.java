@@ -42,7 +42,7 @@ public class DoctorController implements Initializable {
     @FXML
     private Pane examePane;
     @FXML
-    private Pane schedulePane;
+    private Pane patientPane;
     // ====== REGISTER DATA =======
     @FXML
     private Text registerOutput;
@@ -55,9 +55,7 @@ public class DoctorController implements Initializable {
     @FXML
     private TextField emailRegister;
 
-    // ======= CONSTRUCTOR =======
-
-
+    // ======= CONSTRUCTOR ======
     public DoctorController(Doctor doctorMain) {
         this.doctorMain = doctorMain;
     }
@@ -82,8 +80,8 @@ public class DoctorController implements Initializable {
         utils.showPane("examePane");
     }
     @FXML
-    private void scheduleExameView() {
-        utils.showPane("schedulePane");
+    private void patientView() {
+        utils.showPane("patientPane");
     }
 
     // ======= PATIENTS FUNCTIONS =======
@@ -133,7 +131,7 @@ public class DoctorController implements Initializable {
 
         // Load and control background panes view
         List<Pane> panesList = new ArrayList<>(
-                Arrays.asList( homePane, regiterDataPane, examePane,schedulePane));
+                Arrays.asList( homePane, regiterDataPane, examePane, patientPane));
         utils.setPanesList(panesList);
         showHomeView();
 

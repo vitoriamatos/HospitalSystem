@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,13 +12,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0"  xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalsystem.controller.AdminPatientController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalsystem.controller.AdminPatientController">
    <VBox prefHeight="682.0" prefWidth="238.0">
       <children>
          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          <Button mnemonicParsing="false" onAction="#showRegisterPane" prefHeight="37.0" prefWidth="254.0" text="Cadastrar" />
          <Button mnemonicParsing="false" onAction="#showsolicitationPane" prefHeight="38.0" prefWidth="238.0" text="Solicitações" />
          <Button mnemonicParsing="false" onAction="#showListAllPane" prefHeight="42.0" prefWidth="238.0" text="Pacientes" />
+         <Button mnemonicParsing="false" onAction="#showUrgencyPane" prefHeight="42.0" prefWidth="238.0" text="Pronto Socorro" />
          <Button mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="238.0" text="Voltar" />
       </children>
    </VBox>
@@ -41,6 +44,24 @@
                <TableColumn fx:id="cpfColumn" prefWidth="111.99993896484375" text="CPF" />
            </columns>
          </TableView>
+      </children>
+   </Pane>
+   <Pane fx:id="urgencyPane" layoutX="259.0" prefHeight="676.0" prefWidth="558.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="212.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pronto Socorro" />
+         <TextField fx:id="cpfArea" layoutX="59.0" layoutY="163.0" prefHeight="42.0" prefWidth="273.0" promptText="CPF" />
+         <Button layoutX="346.0" layoutY="162.0" mnemonicParsing="false" onAction="#findPatient" prefHeight="42.0" prefWidth="93.0" text="Busca" />
+         <Pane fx:id="urgencyRegisterPane" layoutY="241.0" prefHeight="435.0" prefWidth="558.0" visible="false">
+            <children>
+               <TextField fx:id="namePatientUrgency" layoutX="54.0" layoutY="52.0" prefHeight="42.0" prefWidth="450.0" promptText="Name" />
+               <TextArea fx:id="symptoms" layoutX="52.0" layoutY="131.0" prefHeight="102.0" prefWidth="200.0" promptText="Principais Sintomas" />
+               <Button layoutX="201.0" layoutY="339.0" mnemonicParsing="false" onAction="#registerUrgency" prefHeight="38.0" prefWidth="157.0" text="Agendar" />
+               <TextField fx:id="date" layoutX="52.0" layoutY="270.0" prefHeight="28.0" prefWidth="200.0" promptText="Data" />
+               <TextField fx:id="time" layoutX="304.0" layoutY="270.0" prefHeight="28.0" prefWidth="200.0" promptText="Hora" />
+               <Text fx:id="registerUrgencyOutput" layoutX="252.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+               <ComboBox fx:id="priority" layoutX="292.0" layoutY="131.0" prefWidth="150.0" promptText="Prioridade" />
+            </children>
+         </Pane>
       </children>
    </Pane>
    <Pane fx:id="registerPane" layoutX="241.0" prefHeight="682.0" prefWidth="569.0" style="-fx-background-color: #f5f5f5;">

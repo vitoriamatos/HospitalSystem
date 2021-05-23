@@ -91,7 +91,6 @@ public class PatientController implements Initializable {
         int numero = random.nextInt(100);
         String code = String.valueOf(numero);
         Exames exame = new Exames(code);
-
         exame.setName("Exame de sangue");
         exame.setPatient(patientMain);
 

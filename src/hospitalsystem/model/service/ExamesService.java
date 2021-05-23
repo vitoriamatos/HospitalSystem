@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ExamesService implements HospitalTopics<Exames>, Serializable {
 
-    private static final long serialVersionUID = -1990993300966043997L;
 
+    private static final long serialVersionUID = -6689278344379965829L;
     private final List<Exames> exames = new ArrayList<>();
 
     private static ExamesService singleton;

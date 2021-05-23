@@ -8,13 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0"  xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <VBox prefHeight="682.0" prefWidth="236.0">
       <children>
          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          <Button mnemonicParsing="false" onAction="#showRegisterDataView" prefHeight="36.0" prefWidth="242.0" text="Dados Cadastrais" />
          <Button mnemonicParsing="false" onAction="#showExameView" prefHeight="38.0" prefWidth="237.0" text="Consultar Exames" />
          <Button mnemonicParsing="false" onAction="#scheduleExameView" prefHeight="38.0" prefWidth="236.0" text="Marcar Exames" />
+         <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="242.0" text="Solicitação de atendimento" />
          <Button mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="242.0" text="Voltar" />
       </children>
    </VBox>
