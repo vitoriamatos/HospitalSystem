@@ -43,7 +43,7 @@ public class LoginPatientController implements Initializable {
     @FXML
 
     void viewFind(ActionEvent event) throws IOException {
-        Patient patient = utils.search(patientService, passwordArea);
+        Patient patient = utils.search(patientService, loginArea);
 
         if(patient != null) {
             PatientController pc = new PatientController(patient);

@@ -9,13 +9,16 @@ import hospitalsystem.model.interfaces.HospitalTopics;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DoctorService implements HospitalTopics<Doctor>, Serializable {
 
     private static final long serialVersionUID = -1990993300966043997L;
 
-    private final List<Doctor> doctors = new ArrayList<>();
+    private final Map<String, Doctor> doctors = new HashMap<>();
+    //private final List<Doctor> doctors = new ArrayList<>();
 
     private static DoctorService singleton;
 
@@ -42,19 +45,18 @@ public class DoctorService implements HospitalTopics<Doctor>, Serializable {
 
 
     @Override
-    public Doctor find(String code) {
-        for (Doctor doctor : doctors) {
-            if (code.equals(doctor.getCode())) {
-                System.out.println("Doctor code:" + doctor.getCode());
-                return doctor;
-            }
+    public Doctor find(String email) {
+        if(doctors.containsKey(email)){
+            System.out.println("Doctor code: " + doctors.get(email).getCode());
+            return doctors.get(email);
         }
         return null;
     }
 
     @Override
     public List<Doctor> list() {
-        return doctors;
+        List<Doctor> doctorsList = new ArrayList<>(doctors.values());
+        return doctorsList;
     }
 
     @Override
@@ -71,18 +73,18 @@ public class DoctorService implements HospitalTopics<Doctor>, Serializable {
 
     @Override
     public void register(Doctor doctor) throws DuplicatedEntryException {
-        if (doctors.contains(doctor)) {
+        if (doctors.containsKey(doctor.getEmail())) {
         	throw new DuplicatedEntryException(doctor);
         } else {
-        	doctors.add(doctor);
+        	doctors.put(doctor.getEmail(),doctor);
 
         	System.out.println("Cadastrou");
         }
     }
 
     @Override
-    public void remove(String cpf) {
-        doctors.remove(new Doctor(cpf));
+    public void remove(String email) {
+        doctors.remove(email);
     }
 
 }
