@@ -1,5 +1,4 @@
 package hospitalsystem.model.entities;
-import java.io.Serializable;
 import java.util.List;
 
 public class Doctor extends Person  {

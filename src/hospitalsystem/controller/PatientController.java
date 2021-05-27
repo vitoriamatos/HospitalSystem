@@ -5,6 +5,7 @@ import hospitalsystem.model.entities.Exames;
 import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.service.ExamesService;
 import hospitalsystem.model.service.PatientService;
+import hospitalsystem.model.utils.Backup;
 import hospitalsystem.model.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -134,8 +135,10 @@ public class PatientController implements Initializable {
         utils.setPanesList(panesList);
         showHomeView();
 
+
         // Load instance
-        //Backup.restore();
+        Backup b = new Backup();
+        b.restore();
         patientService = PatientService.getInstance();
         examesService = ExamesService.getInstance();
     }

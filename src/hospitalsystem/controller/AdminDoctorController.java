@@ -251,7 +251,8 @@ public class AdminDoctorController  implements Initializable {
         //showRegisterPane();
 
         // Load instance
-        Backup.restore();
+        Backup b = new Backup();
+        b.restore();
         doctorService = DoctorService.getInstance();
         examesService = ExamesService.getInstance();
     }
