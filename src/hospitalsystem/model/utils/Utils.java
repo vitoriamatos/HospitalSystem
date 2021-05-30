@@ -27,7 +27,8 @@ public class Utils<T> {
     // ======= WINDOW FUNCTIONS =======
 
     public void back(Pane root, ActionEvent event) throws IOException {
-        Backup.backup();
+        Backup b = new Backup();
+        b.backup(b);
 
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../../view/fxmls/InicialView.fxml"));
 
@@ -39,7 +40,8 @@ public class Utils<T> {
     }
 
     public void close() throws IOException {
-        Backup.backup();
+        Backup b = new Backup();
+        b.backup(b);
         System.exit(0);
     }
 

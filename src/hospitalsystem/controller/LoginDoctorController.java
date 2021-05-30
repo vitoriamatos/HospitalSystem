@@ -4,6 +4,7 @@ import hospitalsystem.model.entities.Doctor;
 import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.service.DoctorService;
 import hospitalsystem.model.service.PatientService;
+import hospitalsystem.model.utils.Backup;
 import hospitalsystem.model.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,6 +68,8 @@ public class LoginDoctorController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Backup b = new Backup();
+        b.restore();
         doctorService = DoctorService.getInstance();
     }
 

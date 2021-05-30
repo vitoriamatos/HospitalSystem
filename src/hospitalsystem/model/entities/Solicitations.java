@@ -1,8 +1,9 @@
 package hospitalsystem.model.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Solicitations  {
+public class Solicitations implements Serializable {
 
     private static final long serialVersionUID = -8583777517936355438L;
 

@@ -353,7 +353,8 @@ private void registerUrgency(){
         //showRegisterPane();
 
         // Load instance
-        Backup.restore();
+        Backup b = new Backup();
+        b.restore();
         patientService = PatientService.getInstance();
         examesService = ExamesService.getInstance();
         urgencyService = UrgencyService.getInstance();
