@@ -25,18 +25,6 @@
          <Text layoutX="241.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MARCAR EXAMES" />
       </children>
    </Pane>
-   <Pane fx:id="patientPane" layoutX="240.0" layoutY="5.0" prefHeight="671.0" prefWidth="578.0" style="-fx-background-color: #f5f5f5;">
-      <children>
-         <Text layoutX="262.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacientes " />
-         <TableView fx:id="patientTable" layoutX="23.0" layoutY="136.0" prefHeight="517.0" prefWidth="539.0">
-           <columns>
-             <TableColumn fx:id="idColumn" prefWidth="167.20001220703125" text="Id" />
-             <TableColumn fx:id="nameColumn" prefWidth="214.39993286132812" text="Paciente" />
-               <TableColumn prefWidth="156.800048828125" />
-           </columns>
-         </TableView>
-      </children>
-   </Pane>
    <Pane fx:id="regiterDataPane" layoutX="246.0" layoutY="1.0" prefHeight="671.0" prefWidth="570.0" style="-fx-background-color: #f5f5f5;">
       <children>
          <Text layoutX="214.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DADOS CADASTRAIS" />
@@ -49,6 +37,18 @@
    <Pane fx:id="homePane" layoutX="266.0" prefHeight="682.0" prefWidth="557.0" style="-fx-background-color: #f5f5f5;">
       <children>
          <Text layoutX="213.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BEM-VINDO" />
+      </children>
+   </Pane>
+   <Pane fx:id="patientPane" layoutX="240.0" layoutY="5.0" prefHeight="671.0" prefWidth="578.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="262.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacientes " />
+         <TableView fx:id="patientTable" layoutX="23.0" layoutY="136.0" prefHeight="517.0" prefWidth="539.0">
+           <columns>
+             <TableColumn fx:id="idColumn" prefWidth="167.20001220703125" text="Id" />
+             <TableColumn fx:id="nameColumn" prefWidth="214.39993286132812" text="Paciente" />
+               <TableColumn prefWidth="156.800048828125" />
+           </columns>
+         </TableView>
       </children>
    </Pane>
 </AnchorPane>
