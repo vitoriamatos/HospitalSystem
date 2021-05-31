@@ -294,7 +294,7 @@ private void registerUrgency(){
 
 
     private Urgency setUrgencyAttributes(Patient patient, TextArea symptoms, ComboBox<String> priority, TextField date, TextField time) {
-        Urgency urgency = new Urgency(patient);
+        Urgency urgency = new Urgency(patient.getCpf());
         urgency.setPatient(patient);
         urgency.setSymptoms(symptoms.getText().trim());
         urgency.setPriority(priority.getSelectionModel().getSelectedItem().trim());

@@ -116,7 +116,7 @@ public class PatientController implements Initializable {
     }
     // ======= BACKUP DATA METHODS =======
     private void viewFind() {
-        //setTextFieldsWithAttributes(student, cpf, name, birthDate, email, phoneNumber, address);
+    //setTextFieldsWithAttributes(student, cpf, name, birthDate, email, phoneNumber, address);
     nameRegister.setText(patientMain.getName());
     cpfRegister.setText(patientMain.getCpf());
     phoneNumberRegister.setText(patientMain.getPhoneNumber());

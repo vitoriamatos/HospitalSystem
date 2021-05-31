@@ -4,6 +4,7 @@ package hospitalsystem.model.service;
 import hospitalsystem.exceptions.DuplicatedEntryException;
 import hospitalsystem.exceptions.MissingEntryException;
 import hospitalsystem.model.entities.Doctor;
+import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.entities.Urgency;
 import hospitalsystem.model.interfaces.HospitalTopics;
 
@@ -85,8 +86,8 @@ public class UrgencyService implements HospitalTopics<Urgency>, Serializable {
     }
 
     @Override
-    public void remove(String cpf) {
-        urgencies.remove(new Doctor(cpf));
+    public void remove(String code) {
+        urgencies.remove(new Urgency(code));
     }
 
 }

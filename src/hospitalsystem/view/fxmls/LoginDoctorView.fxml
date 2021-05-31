@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -8,17 +9,14 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalsystem.controller.LoginDoctorController">
-   <Pane layoutY="-1.0" prefHeight="682.0" prefWidth="820.0">
-      <children>
-         <Text layoutX="365.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MÉDICOS">
-            <font>
-               <Font size="25.0" />
-            </font>
-         </Text>
-         <TextField fx:id="loginArea" layoutX="335.0" layoutY="278.0" promptText="login" />
-         <TextField fx:id="passwordArea" layoutX="335.0" layoutY="316.0" promptText="senha" />
-         <Button layoutX="268.0" layoutY="398.0" mnemonicParsing="false" onAction="#viewFind" prefHeight="26.0" prefWidth="134.0" text="Entrar" />
-         <Button layoutX="439.0" layoutY="398.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="134.0" text="Volta" />
-      </children>
-   </Pane>
+   <Button layoutX="526.0" layoutY="408.0" mnemonicParsing="false" onAction="#viewFind" prefHeight="35.0" prefWidth="202.0" styleClass="button-login" stylesheets="@../css/style.css" text="ENTRAR" />
+   <Text fontSmoothingType="LCD" layoutX="556.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MÉDICOS" wrappingWidth="184.7999023437501">
+      <font>
+         <Font name="Segoe UI Light" size="31.0" />
+      </font>
+   </Text>
+   <TextField fx:id="loginArea" layoutX="516.0" layoutY="235.0" prefHeight="35.0" prefWidth="214.0" promptText="login" />
+   <Button layoutX="526.0" layoutY="466.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="202.0" text="VOLTAR" />
+   <Pane layoutY="-1.0" prefHeight="682.0" prefWidth="449.0" styleClass="body-login" stylesheets="@../css/style.css" />
+   <PasswordField fx:id="passwordArea" layoutX="516.0" layoutY="295.0" prefHeight="35.0" prefWidth="214.0" promptText="Senha" />
 </AnchorPane>

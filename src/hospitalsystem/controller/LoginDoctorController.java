@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -32,7 +33,7 @@ public class LoginDoctorController implements Initializable {
     @FXML
     private TextField loginArea;
     @FXML
-    private TextField passwordArea;
+    private PasswordField passwordArea;
 
 
     // ======= STANDART =======

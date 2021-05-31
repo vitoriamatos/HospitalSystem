@@ -10,16 +10,35 @@ public class Urgency implements Serializable {
 
     private List<String> allocatedClasses;
     private Patient patient;
+    private String code;
     private String symptoms;
     private String priority;
     private String date;
     private String time;
+    private String patientName;
+    private String patientCpf;
 
-    public Urgency(Patient patient) {
-        this.patient = patient;
+
+
+    public Urgency(String Code) {
+        this.code= code;
     }
 
+    public String getPatientName() {
+        return patient.getName();
+    }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getPatientCpf() {
+        return patient.getCpf();
+    }
     public String getPriority() {
         return priority;
     }

@@ -1,1 +1,11 @@
 
+.button-login{
+-fx-background-color: #33d4be;
+}
+
+.button-login:hover{
+-fx-background-color: #3bd1bd;
+}
+.body-login{
+-fx-background-color: linear-gradient(to top, #33d4be,#3ae0ca);
+}
