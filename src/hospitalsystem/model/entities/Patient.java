@@ -10,5 +10,4 @@ public class Patient extends Person {
         super(code);
         agenda = new Agenda();
     }
-    
 }
