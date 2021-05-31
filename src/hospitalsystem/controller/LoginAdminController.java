@@ -1,9 +1,8 @@
 package hospitalsystem.controller;
 
+import hospitalsystem.model.entities.Admin;
 import hospitalsystem.model.entities.Doctor;
-import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.service.DoctorService;
-import hospitalsystem.model.service.PatientService;
 import hospitalsystem.model.utils.Backup;
 import hospitalsystem.model.utils.Utils;
 import javafx.event.ActionEvent;
@@ -21,10 +20,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginDoctorController implements Initializable {
+public class LoginAdminController implements Initializable {
 
-    private final Utils<Doctor> utils = new Utils<>();
-    private DoctorService doctorService;
+    private final Utils<Admin> utils = new Utils<>();
+    private final String email = "admin@emal.com";
+    private final String senha = "admin";
     // ======== MAIN PANES =======
     @FXML
     private AnchorPane root;
@@ -45,31 +45,19 @@ public class LoginDoctorController implements Initializable {
 
     @FXML
     void viewFind(ActionEvent event) throws IOException {
-        Doctor doctor = utils.search(doctorService, loginArea);
-
-        if(!doctor.getCode().equals(passwordArea.getText())) {
-            System.out.println("senha errada");
-            doctor = null;
+        if(!email.equals(loginArea.getText()) && !senha.equals(passwordArea.getText())){
+            utils.showPacientNotFound("Adm");
+        }else {
+            showModule(event, "AdminView");
         }
-
-        if(doctor!= null) {
-            DoctorController pc = new DoctorController(doctor);
-            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/DoctorView.fxml"));
-            fxmlloader.setController(pc);
-
-            callStage(event, fxmlloader);
-        }else{
-            utils.showPacientNotFound("Médico");
-            }
     }
 
+    private void showModule(ActionEvent event, String fxmlName) throws IOException {
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/" + fxmlName + ".fxml"));
 
-    public void callStage(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        stage.setTitle("Simulation");
         stage.setScene(new Scene(fxmlloader.load()));
-
         stage.show();
     }
 
@@ -77,12 +65,5 @@ public class LoginDoctorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Backup b = new Backup();
         b.restore();
-        doctorService = DoctorService.getInstance();
     }
-
-
-    // ======= HELPER METHODS =======
-
-
-
 }

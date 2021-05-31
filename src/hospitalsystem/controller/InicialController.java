@@ -29,7 +29,7 @@ public class InicialController {
 
     @FXML
     void adminModule(ActionEvent event) throws IOException {
-        showModule(event, "AdminView");
+        showModule(event, "LoginAdminView");
     }
 
 

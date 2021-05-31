@@ -42,10 +42,15 @@ public class LoginPatientController implements Initializable {
     private void back(ActionEvent event) throws IOException {
         utils.back(root, event);
     }
-    @FXML
 
+    @FXML
     void viewFind(ActionEvent event) throws IOException {
         Patient patient = utils.search(patientService, loginArea);
+
+        if(!patient.getCode().equals(passwordArea.getText())) {
+            System.out.println("senha errada");
+            patient = null;
+        }
 
         if(patient != null) {
             PatientController pc = new PatientController(patient);

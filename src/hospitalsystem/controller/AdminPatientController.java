@@ -250,12 +250,9 @@ public class AdminPatientController  implements Initializable {
 
     @FXML
     private void findPatient() {
-
         Patient patient =  patientService.findCpf(cpfArea.getText().trim());
 
-
         if(patient != null) {
-
             urgencyRegisterPane.setVisible(true);
             namePatientUrgency.setText(patient.getName());
             loadCourseLoad(priority);

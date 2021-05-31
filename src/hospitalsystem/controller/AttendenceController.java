@@ -74,7 +74,7 @@ public class AttendenceController implements Initializable {
         DoctorController pc = new DoctorController(doctorMain);
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/DoctorView.fxml"));
         fxmlloader.setController(pc);
-
+        prepararNovoAtendimento();
         callStage(event, fxmlloader);
     }
 
@@ -85,6 +85,14 @@ public class AttendenceController implements Initializable {
         date.setText(urgencyMain.getDate());
         time.setText(urgencyMain.getTime());
         priority.setText(urgencyMain.getPriority());
+    }
+
+    private void prepararNovoAtendimento(){
+        namePatientUrgency.setText("");
+        symptoms.setText("");
+        date.setText("");
+        time.setText("");
+        priority.setText("");
     }
 
     @FXML

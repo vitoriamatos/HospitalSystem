@@ -11,6 +11,7 @@ public class Backup implements Serializable{
     private UrgencyService urgencyService;
     private SolicitationService solicitationService;
     private DoctorService doctorService;
+    private AttendanceService attendanceService;
 
     public Backup(){
         archive = new File("arquivo.obj");
@@ -19,6 +20,7 @@ public class Backup implements Serializable{
         urgencyService = UrgencyService.getInstance();
         solicitationService = SolicitationService.getInstance();
         doctorService = DoctorService.getInstance();
+        attendanceService = AttendanceService.getInstance();
     }
 
     public void backup(Backup b) {
@@ -54,6 +56,7 @@ public class Backup implements Serializable{
             ExamesService.setInstance(b.examesService);
             UrgencyService.setInstance(b.urgencyService);
             SolicitationService.setInstance(b.solicitationService);
+            AttendanceService.setInstance(b.attendanceService);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
