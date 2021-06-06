@@ -19,9 +19,9 @@
    </Text>
    <TextField fx:id="loginArea" layoutX="516.0" layoutY="235.0" prefHeight="35.0" prefWidth="214.0" promptText="login" />
    <Button layoutX="526.0" layoutY="466.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="202.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="VOLTAR" />
-   <Pane layoutY="-11.0" prefHeight="694.0" prefWidth="450.0" styleClass="body-login" stylesheets="@../css/style.css">
+   <Pane layoutY="-11.0" prefHeight="694.0" prefWidth="401.0" styleClass="body-login" stylesheets="@../css/style.css">
       <children>
-         <ImageView fitHeight="145.0" fitWidth="135.0" layoutX="149.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="102.0" fitWidth="113.0" layoutX="150.0" layoutY="275.0" opacity="0.48" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../img/stethoscope.png" />
             </image>

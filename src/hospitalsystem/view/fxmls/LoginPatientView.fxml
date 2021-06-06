@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalsystem.controller.LoginPatientController">
-   <Pane layoutX="-1.0" prefHeight="682.0" prefWidth="450.0" styleClass="body-login" stylesheets="@../css/style.css">
+   <Pane layoutX="-1.0" prefHeight="682.0" prefWidth="401.0" styleClass="body-login" stylesheets="@../css/style.css">
       <children>
-         <ImageView fitHeight="179.0" fitWidth="214.0" layoutX="150.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="130.0" fitWidth="121.0" layoutX="165.0" layoutY="257.0" opacity="0.46" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../img/patient-icocn.png" />
             </image>

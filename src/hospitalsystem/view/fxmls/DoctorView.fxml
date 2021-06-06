@@ -126,7 +126,7 @@
                   </font>
                </Text>
                <Button layoutX="107.0" layoutY="377.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" styleClass="button-login" stylesheets="@../css/style.css" text="SALVAR" />
-               <Button layoutX="289.0" layoutY="377.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="VOLTAR" />
+               <Button layoutX="289.0" layoutY="377.0" mnemonicParsing="false" onAction="#cancelPassword" prefHeight="40.0" prefWidth="129.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="VOLTAR" />
             </children>
          </Pane>
       </children>
