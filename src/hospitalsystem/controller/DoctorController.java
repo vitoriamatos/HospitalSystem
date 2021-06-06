@@ -109,6 +109,17 @@ public class DoctorController implements Initializable {
     @FXML
     private Text outputMessage;
 
+    // ======== SOLICITATION =======
+
+    @FXML
+    private TableView<Exames> exameTable;
+
+    @FXML
+    private TableColumn<Exames, String> patientColumn;
+    @FXML
+    private TableColumn<Exames, String> examesColumn;
+
+
     // ======= CONSTRUCTOR ======
     public DoctorController(Doctor doctorMain) {
         this.doctorMain = doctorMain;
@@ -303,6 +314,74 @@ public class DoctorController implements Initializable {
         prescripitionPane.setVisible(false);
     }
 
+
+
+
+    // ======= EXAMES =================
+
+    private void populateExames() {
+        // Associate columns to Exames attributes
+        examesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        patientColumn.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+
+        // Fill table
+        exameTable.setItems(FXCollections.observableArrayList(examesService.list()));
+        addButtonToExameTable();
+    }
+
+    private void addButtonToExameTable() {
+        TableColumn<Exames, Void> colBtn = new TableColumn("Atendimento");
+
+        Callback<TableColumn<Exames, Void>, TableCell<Exames, Void>> cellFactory = new Callback<TableColumn<Exames, Void>, TableCell<Exames, Void>>() {
+            @Override
+            public TableCell<Exames, Void> call(final TableColumn<Exames, Void> param) {
+                final TableCell<Exames, Void> cell = new TableCell<Exames, Void>() {
+
+                    private final Button btn = new Button("ATENDER");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            Exames data = getTableView().getItems().get(getIndex());
+                            System.out.println("selectedData: " + data.getPatient().getName());
+
+                            ExameController ac = new ExameController(data, doctorMain);
+                            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/ExameView.fxml"));
+                            fxmlloader.setController(ac);
+
+                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                            stage.setTitle("Hospital H+");
+                            try {
+                                stage.setScene(new Scene(fxmlloader.load()));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            stage.show();
+
+                        });
+                    }
+
+
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        colBtn.setCellFactory(cellFactory);
+
+       exameTable.getColumns().add(colBtn);
+    }
     // ======= MODULES FUNCTIONS =======
     private void showModule(ActionEvent event, String fxmlName) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/" + fxmlName + ".fxml"));
@@ -337,5 +416,6 @@ public class DoctorController implements Initializable {
         urgencyService = UrgencyService.getInstance();
         //For lists
         populatePatient();
+        populateExames();
     }
 }

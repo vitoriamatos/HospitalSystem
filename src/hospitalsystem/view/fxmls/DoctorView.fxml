@@ -69,11 +69,6 @@
             </graphic></Button>
       </children>
    </VBox>
-   <Pane fx:id="examePane" layoutX="237.0" layoutY="-6.0" prefHeight="689.0" prefWidth="586.0" style="-fx-background-color: #f5f5f5;">
-      <children>
-         <Text layoutX="224.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exames" />
-      </children>
-   </Pane>
    <Pane fx:id="patientPane" layoutX="240.0" layoutY="5.0" prefHeight="671.0" prefWidth="578.0" style="-fx-background-color: #f5f5f5;">
       <children>
          <Text layoutX="214.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRONTO SOCORRO">
@@ -129,6 +124,20 @@
                <Button layoutX="289.0" layoutY="377.0" mnemonicParsing="false" onAction="#cancelPassword" prefHeight="40.0" prefWidth="129.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="VOLTAR" />
             </children>
          </Pane>
+      </children>
+   </Pane>
+   <Pane fx:id="examePane" layoutX="237.0" layoutY="-6.0" prefHeight="689.0" prefWidth="586.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="225.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exames do dia">
+            <font>
+               <Font name="Segoe UI Light" size="22.0" />
+            </font></Text>
+         <TableView fx:id="exameTable" layoutX="35.0" layoutY="197.0" prefHeight="419.0" prefWidth="514.0">
+           <columns>
+             <TableColumn fx:id="examesColumn" prefWidth="200.0" text="Exame" />
+             <TableColumn fx:id="patientColumn" prefWidth="196.00003051757812" text="Paciente" />
+           </columns>
+         </TableView>
       </children>
    </Pane>
 </AnchorPane>
