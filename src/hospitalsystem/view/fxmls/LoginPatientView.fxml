@@ -19,7 +19,7 @@
             </image>
          </ImageView>
       </children></Pane>
-   <Button layoutX="526.0" layoutY="468.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="202.0" text="VOLTAR" />
+   <Button layoutX="526.0" layoutY="468.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="202.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="VOLTAR" />
    <Button layoutX="526.0" layoutY="408.0" mnemonicParsing="false" onAction="#viewFind" prefHeight="35.0" prefWidth="202.0" styleClass="button-login" stylesheets="@../css/style.css" text="ENTRAR" />
    <TextField fx:id="loginArea" layoutX="516.0" layoutY="235.0" prefHeight="35.0" prefWidth="214.0" promptText="Login" />
    <Text layoutX="556.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PACIENTES">
