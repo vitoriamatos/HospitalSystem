@@ -92,11 +92,8 @@ public class AdminDoctorController  implements Initializable {
 
     @FXML
     private void back(ActionEvent event) throws IOException {
-        utils.back(root, event);
+        showModule(event, "AdminView");
     }
-
-
-
 
     // ======= MENU FUNCTIONS =======
     @FXML
@@ -107,6 +104,11 @@ public class AdminDoctorController  implements Initializable {
     @FXML
     private void showRegisterPane() {
         utils.showPane("registerPane");
+
+    }
+    @FXML
+    private void showHomePane() {
+        utils.showPane("homePane");
 
     }
     @FXML
@@ -246,10 +248,10 @@ public class AdminDoctorController  implements Initializable {
 
         // Load and control background panes view
         List<Pane> panesList = new ArrayList<>(
-                Arrays.asList( registerPane, listAllPane));
+                Arrays.asList( homePane,registerPane, listAllPane));
         utils.setPanesList(panesList);
         //showRegisterPane();
-
+        showHomePane();
         // Load instance
         Backup b = new Backup();
         b.restore();

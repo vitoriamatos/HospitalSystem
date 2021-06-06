@@ -1,11 +1,34 @@
 
 .button-login{
--fx-background-color: #33d4be;
+-fx-background-color: #347ea8;
+-fx-text-fill: #ffff;
 }
 
 .button-login:hover{
--fx-background-color: #3bd1bd;
+-fx-background-color: #3b8fbf;
+}
+
+.cancel-button{
+-fx-background-color: transparent;
+-fx-border-color: #347ea8;
+-fx-text-fill: #347ea8;
+}
+
+.cancel-button:hover{
+-fx-background-color: #347ea8;
+-fx-text-fill: #ffff;
 }
 .body-login{
--fx-background-color: linear-gradient(to top, #33d4be,#3ae0ca);
+-fx-background-color: linear-gradient(to bottom, #347ea8, #3b8fbf);
+}
+
+.dashboard-button{
+-fx-background-color: transparent;
+-fx-text-fill: #ffff;
+-fx-font-size: 14px;
+}
+
+.dashboard-button:hover{
+-fx-background-color:#2a6c91;
+
 }

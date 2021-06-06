@@ -1,76 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <VBox prefHeight="682.0" prefWidth="236.0">
+   <VBox prefHeight="682.0" prefWidth="236.0" styleClass="body-login" stylesheets="@../css/style.css">
       <children>
-         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-         <Button mnemonicParsing="false" onAction="#showRegisterDataView" prefHeight="36.0" prefWidth="242.0" text="Dados Cadastrais" />
-         <Button mnemonicParsing="false" onAction="#showExameView" prefHeight="38.0" prefWidth="237.0" text="Solicitações Exames" />
-         <Button mnemonicParsing="false" onAction="#patientView" prefHeight="38.0" prefWidth="236.0" text="Solictiações Atendimento" />
-         <Button mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="242.0" text="Voltar" />
+         <ImageView fitHeight="84.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../img/doctor-icon.png" />
+            </image>
+            <VBox.margin>
+               <Insets bottom="42.0" left="76.0" top="35.0" />
+            </VBox.margin></ImageView>
+         <Button mnemonicParsing="false" onAction="#showRegisterDataView" prefHeight="36.0" prefWidth="242.0" styleClass="dashboard-button" stylesheets="@../css/style.css" text="Perfil">
+            <graphic>
+               <ImageView fitHeight="19.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../img/user.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+            <padding>
+               <Insets right="94.0" />
+            </padding></Button>
+         <Button mnemonicParsing="false" onAction="#showExameView" prefHeight="38.0" prefWidth="237.0" styleClass="dashboard-button" stylesheets="@../css/style.css" text="Solicitações Exames">
+            <graphic>
+               <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../img/test.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+         <Button mnemonicParsing="false" onAction="#patientView" prefHeight="38.0" prefWidth="236.0" styleClass="dashboard-button" stylesheets="@../css/style.css" text="Pronto Socorro">
+            <graphic>
+               <ImageView fitHeight="27.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../img/pharmacy.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <padding>
+               <Insets right="34.0" />
+            </padding>
+            <VBox.margin>
+               <Insets bottom="268.0" />
+            </VBox.margin></Button>
+         <Button mnemonicParsing="false" onAction="#back" prefHeight="95.0" prefWidth="246.0" styleClass="dashboard-button" stylesheets="@../css/style.css">
+            <graphic>
+               <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../img/back-button.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
       </children>
    </VBox>
-   <Pane fx:id="examePane" layoutX="242.0" prefHeight="682.0" prefWidth="578.0" style="-fx-background-color: #f5f5f5;">
+   <Pane fx:id="examePane" layoutX="237.0" layoutY="-6.0" prefHeight="689.0" prefWidth="586.0" style="-fx-background-color: #f5f5f5;">
       <children>
-         <Text layoutX="241.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MARCAR EXAMES" />
-      </children>
-   </Pane>
-   <Pane fx:id="regiterDataPane" layoutX="246.0" layoutY="1.0" prefHeight="671.0" prefWidth="570.0" style="-fx-background-color: #f5f5f5;">
-      <children>
-         <Text layoutX="214.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DADOS CADASTRAIS" />
-         <TextField fx:id="nameRegister" editable="false" layoutX="46.0" layoutY="154.0" prefHeight="25.0" prefWidth="447.0" promptText="Nome" />
-         <TextField fx:id="cpfRegister" editable="false" layoutX="46.0" layoutY="211.0" prefHeight="25.0" prefWidth="218.0" promptText="cpf" />
-         <TextField fx:id="phoneNumberRegister" editable="false" layoutX="284.0" layoutY="211.0" prefHeight="25.0" prefWidth="209.0" promptText="telefone" />
-         <TextField fx:id="emailRegister" editable="false" layoutX="46.0" layoutY="264.0" prefHeight="25.0" prefWidth="218.0" promptText="email" />
-      </children>
-   </Pane>
-   <Pane fx:id="homePane" layoutX="266.0" prefHeight="682.0" prefWidth="557.0" style="-fx-background-color: #f5f5f5;">
-      <children>
-         <Text layoutX="213.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BEM-VINDO" />
+         <Text layoutX="224.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exames" />
       </children>
    </Pane>
    <Pane fx:id="patientPane" layoutX="240.0" layoutY="5.0" prefHeight="671.0" prefWidth="578.0" style="-fx-background-color: #f5f5f5;">
       <children>
-         <Text layoutX="272.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacientes " />
+         <Text layoutX="214.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRONTO SOCORRO">
+            <font>
+               <Font name="Segoe UI Light" size="22.0" />
+            </font></Text>
          <TableView fx:id="solicitationTable" layoutX="42.0" layoutY="138.0" prefHeight="498.0" prefWidth="514.0">
            <columns>
-             <TableColumn fx:id="priorityColumn" prefWidth="160.0" text="Prioridade" />
-             <TableColumn fx:id="nameColumn" prefWidth="257.6000061035156" text="Nome" />
+             <TableColumn fx:id="priorityColumn" prefWidth="119.20001220703125" text="Prioridade" />
+             <TableColumn fx:id="nameColumn" prefWidth="216.00003051757812" text="Nome" />
            </columns>
          </TableView>
       </children>
    </Pane>
-   <Pane fx:id="attendencePane" layoutX="255.0" prefHeight="682.0" prefWidth="570.0" style="-fx-background-color: #f5f5f5;" visible="false">
+   <Pane fx:id="homePane" layoutX="238.0" prefHeight="682.0" prefWidth="586.0" style="-fx-background-color: #f5f5f5;">
       <children>
-         <TextField fx:id="namePatientUrgency" layoutX="52.0" layoutY="97.0" prefHeight="40.0" prefWidth="466.0" promptText="Nome" />
-         <TextArea fx:id="symptoms" layoutX="52.0" layoutY="174.0" prefHeight="200.0" prefWidth="200.0" />
-         <TextField fx:id="date" layoutX="274.0" layoutY="174.0" prefHeight="36.0" prefWidth="112.0" />
-         <TextField fx:id="time" layoutX="401.0" layoutY="174.0" prefHeight="36.0" prefWidth="112.0" />
-         <TextField fx:id="priority" layoutX="275.0" layoutY="220.0" prefHeight="38.0" prefWidth="236.0" />
-         <TextArea fx:id="rersult" layoutX="52.0" layoutY="406.0" prefHeight="88.0" prefWidth="481.0" promptText="report" />
-         <Button fx:id="saveAttendance" layoutX="113.0" layoutY="607.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="172.0" text="Finalizar" />
-         <Button layoutX="315.0" layoutY="297.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="172.0" text="Histórico" />
-         <Text layoutX="252.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATENDIMENTO" wrappingWidth="103.75" />
-         <Button layoutX="315.0" layoutY="607.0" mnemonicParsing="false" onAction="#cancelUrgency" prefHeight="36.0" prefWidth="172.0" text="Cancelar" />
-         <Text layoutX="59.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laudo" />
-         <Button layoutX="224.0" layoutY="517.0" mnemonicParsing="false" onAction="#pescription" prefHeight="36.0" prefWidth="137.0" text="RECEITA" />
-         <Pane fx:id="prescripitionPane" layoutX="41.0" layoutY="77.0" prefHeight="587.0" prefWidth="501.0" style="-fx-background-color: #f5f5f5;" visible="false">
+         <Text layoutX="225.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BEM-VINDO(A)">
+            <font>
+               <Font name="Segoe UI Light" size="21.0" />
+            </font></Text>
+      </children>
+   </Pane>
+   <Pane fx:id="regiterDataPane" layoutX="239.0" layoutY="1.0" prefHeight="671.0" prefWidth="585.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="199.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DADOS CADASTRAIS">
+            <font>
+               <Font name="Segoe UI Light" size="20.0" />
+            </font></Text>
+         <TextField fx:id="nameRegister" editable="false" layoutX="69.0" layoutY="186.0" prefHeight="40.0" prefWidth="447.0" promptText="Nome" />
+         <TextField fx:id="cpfRegister" editable="false" layoutX="69.0" layoutY="243.0" prefHeight="40.0" prefWidth="218.0" promptText="cpf" />
+         <TextField fx:id="phoneNumberRegister" editable="false" layoutX="307.0" layoutY="243.0" prefHeight="40.0" prefWidth="209.0" promptText="telefone" />
+         <TextField fx:id="emailRegister" editable="false" layoutX="69.0" layoutY="296.0" prefHeight="40.0" prefWidth="447.0" promptText="email" />
+         <Button layoutX="169.0" layoutY="402.0" mnemonicParsing="false" onAction="#editData" prefHeight="40.0" prefWidth="200.0" styleClass="button-login" stylesheets="@../css/style.css" text="EDITAR" />
+         <Button layoutX="170.0" layoutY="464.0" mnemonicParsing="false" onAction="#editPassword" prefHeight="40.0" prefWidth="200.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="ALTERAR SENHA" />
+         <Pane fx:id="editPane" layoutX="47.0" layoutY="364.0" prefHeight="263.0" prefWidth="480.0" style="-fx-background-color: #f5f5f5;" visible="false">
             <children>
-               <Text layoutX="80.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paciente: " />
-               <Text layoutX="80.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Médico(a): " />
-               <TextArea fx:id="prescription" layoutX="70.0" layoutY="122.0" prefHeight="376.0" prefWidth="368.0" promptText="prescription" />
-               <Button layoutX="221.0" layoutY="524.0" mnemonicParsing="false" onAction="#savePrescription" text="SALVAR" />
+               <Button layoutX="11.0" layoutY="76.0" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="200.0" styleClass="button-login" stylesheets="@../css/style.css" text="SALVAR" />
+               <Button layoutX="240.0" layoutY="76.0" mnemonicParsing="false" onAction="#cancelEdit" prefHeight="40.0" prefWidth="200.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="CANCELAR" />
+            </children>
+         </Pane>
+         <Pane fx:id="passwordPane" layoutX="24.0" layoutY="77.0" prefHeight="463.0" prefWidth="509.0" style="-fx-background-color: #F5F5F5;" visible="false">
+            <children>
+               <Text layoutX="130.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe a nova senha:" />
+               <TextField layoutX="130.0" layoutY="180.0" prefHeight="31.0" prefWidth="236.0" />
+               <Text layoutX="130.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirme a senha:" />
+               <TextField layoutX="130.0" layoutY="256.0" prefHeight="31.0" prefWidth="236.0" />
+               <Text layoutX="166.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alteração da senha">
+                  <font>
+                     <Font name="Segoe UI Light" size="22.0" />
+                  </font>
+               </Text>
+               <Button layoutX="107.0" layoutY="377.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" styleClass="button-login" stylesheets="@../css/style.css" text="SALVAR" />
+               <Button layoutX="289.0" layoutY="377.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="VOLTAR" />
             </children>
          </Pane>
       </children>

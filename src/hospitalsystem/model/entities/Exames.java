@@ -8,8 +8,9 @@ public class Exames implements Serializable {
 
     private static final long serialVersionUID = 4276128555363091686L;
 
-    private List<String> allocatedClasses;
+
     private String name;
+    private String time;
     private String code;
     private int status;
     private Doctor doctor;
@@ -17,13 +18,7 @@ public class Exames implements Serializable {
     private String patientName;
     private String patientCpf;
 
-    public String getPatientName() {
-        return patient.getName();
-    }
 
-    public String getPatientCpf() {
-        return patient.getCpf();
-    }
 
     public Exames(String code) {
         this.code=code;
@@ -35,6 +30,14 @@ public class Exames implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getCode() {
@@ -67,5 +70,13 @@ public class Exames implements Serializable {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+    public String getPatientName() {
+        return patient.getName();
+    }
+
+    public String getPatientCpf() {
+        return patient.getCpf();
     }
 }

@@ -43,8 +43,8 @@ public class SolicitationService implements HospitalTopics<Patient>, Serializabl
     @Override
     public Patient find(String code) {
         for (Patient patient : patients) {
-            if (code.equals(patient.getCode())) {
-                System.out.println("paciente code:" + patient.getCode());
+            if (code.equals(patient.getPassword())) {
+                System.out.println("paciente code:" + patient.getPassword());
                 return patient;
             }
         }

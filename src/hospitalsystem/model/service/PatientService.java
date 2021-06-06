@@ -1,7 +1,6 @@
 package hospitalsystem.model.service;
 
 
-import com.sun.javafx.scene.shape.PathUtils;
 import hospitalsystem.exceptions.DuplicatedEntryException;
 import hospitalsystem.exceptions.MissingEntryException;
 import hospitalsystem.model.interfaces.HospitalTopics;
@@ -47,7 +46,7 @@ public class PatientService implements HospitalTopics<Patient>, Serializable {
     @Override
     public Patient find(String email) {
         if(patients.containsKey(email)){
-            System.out.println("paciente code: " + patients.get(email).getCode());
+            System.out.println("paciente code: " + patients.get(email).getPassword());
             return patients.get(email);
         }
         return null;

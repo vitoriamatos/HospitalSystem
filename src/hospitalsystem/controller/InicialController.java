@@ -44,11 +44,8 @@ public class InicialController {
         stage.show();
     }
 
-    public void back(ActionEvent actionEvent) {
-    }
 
 
-    // ======= HELPER METHODS =======
 
 
 

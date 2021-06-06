@@ -1,38 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Label layoutY="-6.0" prefHeight="102.0" prefWidth="820.0" style="-fx-background-color: #347ea8;" stylesheets="@../css/style.css" />
       <TextField fx:id="namePatientUrgency" layoutX="90.0" layoutY="156.0" prefHeight="38.0" prefWidth="364.0" />
       <TextArea fx:id="symptoms" layoutX="84.0" layoutY="227.0" prefHeight="121.0" prefWidth="670.0" />
       <TextField fx:id="date" layoutX="470.0" layoutY="156.0" prefHeight="38.0" prefWidth="99.0" promptText="20/05/2021" />
       <TextField fx:id="time" layoutX="583.0" layoutY="156.0" prefHeight="38.0" prefWidth="57.0" promptText="20:21" />
       <TextField fx:id="priority" layoutX="660.0" layoutY="156.0" prefHeight="38.0" prefWidth="91.0" promptText="Prioridade" />
-      <TextArea fx:id="report" layoutX="84.0" layoutY="386.0" prefHeight="151.0" prefWidth="670.0" />
-      <Text layoutX="403.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATENDIMENTO" />
-      <Button layoutX="251.0" layoutY="623.0" mnemonicParsing="false" onAction="#save" prefHeight="38.0" prefWidth="152.0" text="SALVAR" />
-      <Button layoutX="429.0" layoutY="623.0" mnemonicParsing="false" onAction="#back" prefHeight="38.0" prefWidth="152.0" text="VOLTAR" />
+      <TextArea fx:id="report" layoutX="84.0" layoutY="386.0" prefHeight="111.0" prefWidth="670.0" />
+      <Text fill="WHITE" layoutX="382.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATENDIMENTO">
+         <font>
+            <Font name="Segoe UI Light" size="22.0" />
+         </font></Text>
+      <Button layoutX="255.0" layoutY="594.0" mnemonicParsing="false" onAction="#save" prefHeight="38.0" prefWidth="152.0" styleClass="button-login" stylesheets="@../css/style.css" text="SALVAR" />
+      <Button layoutX="429.0" layoutY="594.0" mnemonicParsing="false" onAction="#back" prefHeight="38.0" prefWidth="152.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="VOLTAR" />
       <Text layoutX="104.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
       <Text layoutX="474.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data: " />
       <Text layoutX="589.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:" />
       <Text layoutX="667.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prioridade:" />
       <Text layoutX="104.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sintomas" />
       <Text layoutX="104.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laudo" />
-      <Button layoutX="331.0" layoutY="557.0" mnemonicParsing="false" onAction="#pescription" prefHeight="38.0" prefWidth="143.0" text="RECEITA" />
-      <Pane fx:id="prescripitionPane" layoutX="60.0" layoutY="94.0" prefHeight="578.0" prefWidth="726.0" style="-fx-background-color: #f5f5f5;" visible="false">
+      <Button layoutX="331.0" layoutY="522.0" mnemonicParsing="false" onAction="#pescription" prefHeight="38.0" prefWidth="143.0" styleClass="button-login" stylesheets="@../css/style.css" text="RECEITA" />
+      <Pane fx:id="prescripitionPane" layoutX="60.0" layoutY="104.0" prefHeight="568.0" prefWidth="726.0" style="-fx-background-color: #f5f5f5;" visible="false">
          <children>
-            <Text layoutX="352.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RECEITA" />
+            <Text layoutX="344.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RECEITA">
+               <font>
+                  <Font name="Segoe UI Light" size="22.0" />
+               </font></Text>
             <TextArea fx:id="prescription" layoutX="47.0" layoutY="130.0" prefHeight="278.0" prefWidth="654.0" />
-            <Button layoutX="233.0" layoutY="485.0" mnemonicParsing="false" onAction="#savePrescription" prefHeight="38.0" prefWidth="111.0" text="SALVAR" />
-            <Button layoutX="396.0" layoutY="483.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" text="VOLTAR" />
+            <Button layoutX="233.0" layoutY="485.0" mnemonicParsing="false" onAction="#savePrescription" prefHeight="40.0" prefWidth="111.0" styleClass="button-login" stylesheets="@../css/style.css" text="SALVAR" />
+            <Button layoutX="396.0" layoutY="483.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="111.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="VOLTAR" />
          </children>
       </Pane>
       <Text fx:id="registerOutput" layoutX="424.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <ImageView fitHeight="52.0" fitWidth="57.0" layoutX="315.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/insurance.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,6 +1,7 @@
 package hospitalsystem.controller;
 
 import hospitalsystem.exceptions.DuplicatedEntryException;
+import hospitalsystem.exceptions.MissingEntryException;
 import hospitalsystem.model.entities.*;
 import hospitalsystem.model.service.DoctorService;
 import hospitalsystem.model.service.ExamesService;
@@ -52,6 +53,10 @@ public class DoctorController implements Initializable {
     private Pane attendencePane;
     @FXML
     private Pane prescripitionPane;
+    @FXML
+    private Pane editPane;
+    @FXML
+    private Pane passwordPane;
     // ====== REGISTER DATA =======
     @FXML
     private Text registerOutput;
@@ -95,6 +100,15 @@ public class DoctorController implements Initializable {
     private TextArea prescription;
     @FXML
     private Button saveAttendance;
+
+    // ====== EDIT PASSWORD =======
+    @FXML
+    private PasswordField password;
+    @FXML
+    private PasswordField passwordConfirme;
+    @FXML
+    private Text outputMessage;
+
     // ======= CONSTRUCTOR ======
     public DoctorController(Doctor doctorMain) {
         this.doctorMain = doctorMain;
@@ -123,22 +137,84 @@ public class DoctorController implements Initializable {
         utils.showPane("patientPane");
     }
 
-    // ======= PATIENTS FUNCTIONS =======
-    @FXML
-    private void scheduleExame() {
-        Random random = new Random();
-        int numero = random.nextInt(100);
-        String code = String.valueOf(numero);
-        Exames exame = new Exames(code);
+    // ======= DOCTOR FUNCTIONS =======
 
-        exame.setName("Exame de sangue");
-        //exame.setPatient(doctorMain);
+    @FXML
+    private void editData(){
+
+        editPane.setVisible(true);
+
+        nameRegister.editableProperty().setValue(true);
+        cpfRegister.editableProperty().setValue(true);
+        phoneNumberRegister.editableProperty().setValue(true);
+        emailRegister.editableProperty().setValue(true);
+
+    }
+
+    @FXML
+    private void cancelEdit(){
+
+        setTextFieldsWithAttributes(nameRegister,cpfRegister,phoneNumberRegister,emailRegister);
+        editPane.setVisible(false);
+    }
+
+    @FXML
+    private void save(){
+        doctorMain = setDoctorAttributes( cpfRegister, nameRegister, phoneNumberRegister, emailRegister);
 
         try {
-            examesService.register(exame);
-        } catch (DuplicatedEntryException e) {
-            e.printStackTrace();
+            doctorService.modify(doctorMain);
+            nameRegister.editableProperty().setValue(false);
+            cpfRegister.editableProperty().setValue(false);
+            phoneNumberRegister.editableProperty().setValue(false);
+            emailRegister.editableProperty().setValue(false);
+        } catch (MissingEntryException ignored) {
         }
+        setTextFieldsWithAttributes(nameRegister,cpfRegister,phoneNumberRegister,emailRegister);
+        editPane.setVisible(false);
+    }
+
+    private Doctor setDoctorAttributes(TextField cpf, TextField name, TextField phoneNumber,TextField emailRegister) {
+
+        doctorMain.setName(utils.toTitleCase(utils.formatName(name.getText())));
+        doctorMain.setCpf(cpf.getText().trim());
+        doctorMain.setPhoneNumber(phoneNumber.getText().trim());
+        doctorMain.setEmail(emailRegister.getText().trim());
+
+        return doctorMain;
+    }
+
+    private void setTextFieldsWithAttributes(TextField name, TextField cpf, TextField phoneNumber, TextField email) {
+
+        nameRegister.setText(doctorMain.getName());
+        cpfRegister.setText(doctorMain.getCpf());
+        phoneNumberRegister.setText(doctorMain.getPhoneNumber());
+        emailRegister.setText(doctorMain.getEmail());
+
+    }
+
+
+    @FXML
+    private void saveNewPassword() {
+
+        if(password.getText().equals(passwordConfirme.getText())){
+            doctorMain.setPassword(password.getText());
+            outputMessage.setText("Senha alterada com suesso");
+        }else{
+            outputMessage.setText("A nova senha e a confirmação de senha devem ser iguais");
+        }
+
+    }
+
+    @FXML
+    private void cancelPassword() {
+        passwordPane.setVisible(false);
+
+    }
+    @FXML
+    private void editPassword() {
+        passwordPane.setVisible(true);
+
     }
 
     private void populatePatient() {
@@ -172,7 +248,7 @@ public class DoctorController implements Initializable {
 
                             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                            stage.setTitle("Simulation");
+                            stage.setTitle("Hospital H+");
                             try {
                                 stage.setScene(new Scene(fxmlloader.load()));
                             } catch (IOException e) {
@@ -208,7 +284,7 @@ public class DoctorController implements Initializable {
     public void callStage(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        stage.setTitle("Simulation");
+        stage.setTitle("Hospital H+");
         stage.setScene(new Scene(fxmlloader.load()));
 
         stage.show();
@@ -216,7 +292,6 @@ public class DoctorController implements Initializable {
     @FXML
     private void pescription(){
         prescripitionPane.setVisible(true);
-        System.out.println("CLICOU AQUI");
     }
     @FXML
     private void cancelUrgency(){

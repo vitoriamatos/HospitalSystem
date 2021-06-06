@@ -22,7 +22,8 @@ public class HospitalSystem extends Application {
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        // stage.getIcons().add(new Image("academiccontrolsystem/view/images/icon.png"));
+        stage.setTitle("Hospital H+");
+        stage.getIcons().add(new Image("hospitalsystem/view/img/icon.png"));
         stage.show();
     }
 

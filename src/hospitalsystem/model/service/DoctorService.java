@@ -4,7 +4,6 @@ package hospitalsystem.model.service;
 import hospitalsystem.exceptions.DuplicatedEntryException;
 import hospitalsystem.exceptions.MissingEntryException;
 import hospitalsystem.model.entities.Doctor;
-import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.interfaces.HospitalTopics;
 
 import java.io.Serializable;
@@ -47,7 +46,7 @@ public class DoctorService implements HospitalTopics<Doctor>, Serializable {
     @Override
     public Doctor find(String email) {
         if(doctors.containsKey(email)){
-            System.out.println("Doctor code: " + doctors.get(email).getCode());
+            System.out.println("Doctor code: " + doctors.get(email).getPassword());
             return doctors.get(email);
         }
         return null;

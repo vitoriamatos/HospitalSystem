@@ -114,19 +114,7 @@ public class AdminPatientController  implements Initializable {
 
     @FXML
     private void back(ActionEvent event) throws IOException {
-        utils.back(root, event);
-    }
-
-
-    // ======= MODULES FUNCTIONS =======
-    @FXML
-    void doctorModule(ActionEvent event) throws IOException {
-        showModule(event, "AdminDoctorView");
-    }
-
-    @FXML
-    void patientModule(ActionEvent event) throws IOException {
-        showModule(event, "AdminPatientView");
+        showModule(event, "AdminView");
     }
 
     // ======= MENU FUNCTIONS =======
@@ -153,7 +141,10 @@ public class AdminPatientController  implements Initializable {
         populateTable();
 
     }
-
+    @FXML
+    private void showHomeView() {
+        utils.showPane("homePane");
+    }
 
     // ======= FORMAT AND VALIDATE FUNCTIONS =======
     @FXML
@@ -161,8 +152,20 @@ public class AdminPatientController  implements Initializable {
         formatCpf(cpfRegister);
     }
     @FXML
+    private void cpfFieldFind() {
+        formatCpf(cpfArea);
+    }
+    @FXML
     private void phoneNumberFieldRegister() {
         formatPhoneNumber(phoneNumberRegister);
+    }
+    @FXML
+    private void dateFormat() {
+        formatDate(date);
+    }
+    @FXML
+    private void timeFormat() {
+        formatTime(time);
     }
 
 
@@ -174,6 +177,12 @@ public class AdminPatientController  implements Initializable {
         formatTextField(textField, "(##)#####-####", "0123456789");
     }
 
+    private void formatDate(TextField textField) {
+        formatTextField(textField, "##/##/####", "0123456789");
+    }
+    private void formatTime(TextField textField) {
+        formatTextField(textField, "##:##", "0123456789");
+    }
 
     private boolean isInputValid(TextField cpf, TextField name,  TextField email) {
         // Assert invalid inputs
@@ -275,14 +284,12 @@ private void registerUrgency(){
 
         Exception exception = null;
         try {
-            System.out.println("entrou aqui");
-            System.out.println("u+ "+  urgency.getPatient().getName());
             urgencyService.register(urgency);
         } catch (DuplicatedEntryException e) {
             exception = e;
         }
 
-        utils.outputRegistrationResultToUser(registerUrgencyOutput, exception, "Urgency");
+        utils.outputRegistrationResultToUser(registerUrgencyOutput, exception, "Prontuario");
     } catch (NullPointerException e) {
         utils.showMissingFieldAlert();
     }
@@ -320,7 +327,7 @@ private void registerUrgency(){
         // Associate columns to Exames attributes
         solicitationColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         patientColumn.setCellValueFactory(new PropertyValueFactory<>("patientName"));
-        cpfColumn.setCellValueFactory(new PropertyValueFactory<>("patientCpf"));
+        cpfColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
 
 
         // Fill table
@@ -344,9 +351,9 @@ private void registerUrgency(){
 
         // Load and control background panes view
         List<Pane> panesList = new ArrayList<>(
-                Arrays.asList( registerPane, solicitationPane,listAllPane, urgencyPane));
+                Arrays.asList(homePane, registerPane, solicitationPane,listAllPane, urgencyPane));
         utils.setPanesList(panesList);
-
+        showHomeView();
         //showRegisterPane();
 
         // Load instance

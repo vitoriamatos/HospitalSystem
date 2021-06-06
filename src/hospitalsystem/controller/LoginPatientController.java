@@ -47,7 +47,7 @@ public class LoginPatientController implements Initializable {
     void viewFind(ActionEvent event) throws IOException {
         Patient patient = utils.search(patientService, loginArea);
 
-        if(!patient.getCode().equals(passwordArea.getText())) {
+        if(!patient.getPassword().equals(passwordArea.getText())) {
             System.out.println("senha errada");
             patient = null;
         }
@@ -67,7 +67,7 @@ public class LoginPatientController implements Initializable {
     public void callStage(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        stage.setTitle("Simulation");
+        stage.setTitle("Hospital H+");
         stage.setScene(new Scene(fxmlloader.load()));
 
         stage.show();

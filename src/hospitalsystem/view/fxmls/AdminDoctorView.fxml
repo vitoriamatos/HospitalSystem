@@ -1,29 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalsystem.controller.AdminDoctorController">
-   <VBox prefHeight="682.0" prefWidth="159.0">
+   <VBox prefHeight="682.0" prefWidth="218.0" styleClass="body-login" stylesheets="@../css/style.css">
       <children>
-         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-         <Button mnemonicParsing="false" onAction="#showRegisterPane" prefHeight="44.0" prefWidth="204.0" text="Cadastrar" />
-         <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="217.0" text="Solicitações" />
-         <Button mnemonicParsing="false" onAction="#showListAllPane" prefHeight="42.0" prefWidth="234.0" text="Médicos" />
-         <Button mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="218.0" text="Voltar" />
+         <ImageView fitHeight="84.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../img/doctor-icon.png" />
+            </image>
+            <VBox.margin>
+               <Insets bottom="42.0" left="76.0" top="25.0" />
+            </VBox.margin></ImageView>
+         <Button mnemonicParsing="false" onAction="#showRegisterPane" prefHeight="45.0" prefWidth="227.0" styleClass="dashboard-button" stylesheets="@../css/style.css" text="Cadastrar">
+            <graphic>
+               <ImageView fitHeight="19.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../img/user.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <padding>
+               <Insets right="70.0" />
+            </padding></Button>
+         <Button mnemonicParsing="false" onAction="#showListAllPane" prefHeight="42.0" prefWidth="234.0" styleClass="dashboard-button" stylesheets="@../css/style.css" text="Médicos">
+            <graphic>
+               <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../img/customer.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <padding>
+               <Insets right="65.0" />
+            </padding>
+            <VBox.margin>
+               <Insets bottom="297.0" />
+            </VBox.margin></Button>
+         <Button mnemonicParsing="false" onAction="#back" prefHeight="59.0" prefWidth="205.0" styleClass="dashboard-button" stylesheets="@../css/style.css">
+            <graphic>
+               <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../img/back-button.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
       </children>
    </VBox>
-   <Pane fx:id="listAllPane" layoutX="243.0" layoutY="4.0" prefHeight="674.0" prefWidth="570.0" style="-fx-background-color: #f5f5f5;">
+   <Pane fx:id="listAllPane" layoutX="226.0" layoutY="4.0" prefHeight="674.0" prefWidth="587.0" style="-fx-background-color: #f5f5f5;">
       <children>
-         <Text layoutX="244.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Médicos" />
-         <TableView fx:id="doctorTable" layoutX="29.0" layoutY="137.0" prefHeight="513.0" prefWidth="517.0">
+         <Text layoutX="222.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Médicos">
+            <font>
+               <Font name="Segoe UI Light" size="22.0" />
+            </font></Text>
+         <TableView fx:id="doctorTable" layoutX="62.0" layoutY="137.0" prefHeight="513.0" prefWidth="517.0">
            <columns>
              <TableColumn fx:id="nameColumn" prefWidth="273.5999450683594" text="Nome" />
              <TableColumn fx:id="emailColumn" prefWidth="243.20001220703125" text="Email" />
@@ -31,14 +72,26 @@
          </TableView>
       </children>
    </Pane>
-   <Pane fx:id="registerPane" layoutX="200.0" layoutY="1.0" prefHeight="673.0" prefWidth="613.0" style="-fx-background-color: #f5f5f5;">
+   <Pane fx:id="homePane" layoutX="228.0" prefHeight="682.0" prefWidth="593.0" style="-fx-background-color: #f5f5f5;">
       <children>
-         <Text layoutX="273.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRAR" />
-         <TextField fx:id="nameRegister" layoutX="56.0" layoutY="173.0" onKeyReleased="#cpfFieldRegister" prefHeight="33.0" prefWidth="510.0" promptText="Nome" />
-         <TextField fx:id="cpfRegister" layoutX="56.0" layoutY="232.0" onKeyReleased="#cpfFieldRegister" prefHeight="33.0" prefWidth="268.0" promptText="CPF" />
-         <TextField fx:id="phoneNumberRegister" layoutX="354.0" layoutY="232.0" onKeyReleased="#phoneNumberFieldRegister" prefHeight="33.0" prefWidth="212.0" promptText="Telefone" />
-         <TextField fx:id="emailRegister" layoutX="56.0" layoutY="294.0" prefHeight="33.0" prefWidth="274.0" promptText="Email" />
-         <Button layoutX="280.0" layoutY="491.0" mnemonicParsing="false" onAction="#register" text="CADASTRAR" />
+         <Text layoutX="218.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEJA BEM-VINDO(A)">
+            <font>
+               <Font name="Segoe UI Light" size="22.0" />
+            </font>
+         </Text>
+      </children>
+   </Pane>
+   <Pane fx:id="registerPane" layoutX="227.0" layoutY="1.0" prefHeight="674.0" prefWidth="587.0" style="-fx-background-color: #f5f5f5;">
+      <children>
+         <Text layoutX="252.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRAR">
+            <font>
+               <Font name="Segoe UI Light" size="22.0" />
+            </font></Text>
+         <TextField fx:id="nameRegister" layoutX="69.0" layoutY="186.0" onKeyReleased="#cpfFieldRegister" prefHeight="40.0" prefWidth="447.0" promptText="Nome" />
+         <TextField fx:id="cpfRegister" layoutX="69.0" layoutY="243.0" onKeyReleased="#cpfFieldRegister" prefHeight="40.0" prefWidth="218.0" promptText="CPF" />
+         <TextField fx:id="phoneNumberRegister" layoutX="307.0" layoutY="243.0" onKeyReleased="#phoneNumberFieldRegister" prefHeight="40.0" prefWidth="209.0" promptText="Telefone" />
+         <TextField fx:id="emailRegister" layoutX="69.0" layoutY="296.0" prefHeight="40.0" prefWidth="447.0" promptText="Email" />
+         <Button layoutX="199.0" layoutY="402.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="200.0" styleClass="button-login" stylesheets="@../css/style.css" text="CADASTRAR" />
          <Text fx:id="registerOutput" layoutX="150.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="377.3366394042969" />
       </children>
    </Pane>

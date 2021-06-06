@@ -141,7 +141,7 @@ public class AttendenceController implements Initializable {
     public void callStage(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        stage.setTitle("Simulation");
+        stage.setTitle("Hospital H+");
         stage.setScene(new Scene(fxmlloader.load()));
 
         stage.show();

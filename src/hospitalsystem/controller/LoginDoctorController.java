@@ -1,9 +1,7 @@
 package hospitalsystem.controller;
 
 import hospitalsystem.model.entities.Doctor;
-import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.service.DoctorService;
-import hospitalsystem.model.service.PatientService;
 import hospitalsystem.model.utils.Backup;
 import hospitalsystem.model.utils.Utils;
 import javafx.event.ActionEvent;
@@ -47,7 +45,7 @@ public class LoginDoctorController implements Initializable {
     void viewFind(ActionEvent event) throws IOException {
         Doctor doctor = utils.search(doctorService, loginArea);
 
-        if(!doctor.getCode().equals(passwordArea.getText())) {
+        if(!doctor.getPassword().equals(passwordArea.getText())) {
             System.out.println("senha errada");
             doctor = null;
         }
@@ -67,7 +65,7 @@ public class LoginDoctorController implements Initializable {
     public void callStage(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        stage.setTitle("Simulation");
+        stage.setTitle("Hospital H+");
         stage.setScene(new Scene(fxmlloader.load()));
 
         stage.show();

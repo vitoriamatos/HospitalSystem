@@ -6,22 +6,26 @@ public abstract class Person implements Serializable {
 
     private static final long serialVersionUID = -2522224918893531132L;
 
-    private String code;
+    private String password;
     private String name;
     private String cpf;
     private String phoneNumber;
     private String email;
 
 
-    public Person(String code){
-        this.code = code;
+    public Person(String password){
+        this.password = password;
     }
 
 
 
 
-    public String getCode() {
-        return code;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
