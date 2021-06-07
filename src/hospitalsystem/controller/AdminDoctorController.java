@@ -92,6 +92,8 @@ public class AdminDoctorController  implements Initializable {
 
     @FXML
     private void back(ActionEvent event) throws IOException {
+        Backup b = new Backup();
+        b.backup(b);
         showModule(event, "AdminView");
     }
 
