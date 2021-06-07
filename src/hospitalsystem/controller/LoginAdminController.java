@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class LoginAdminController implements Initializable {
 
     private final Utils<Admin> utils = new Utils<>();
-    private final String email = "admin@emal.com";
+    private final String email = "admin@email.com";
     private final String senha = "admin";
     // ======== MAIN PANES =======
     @FXML

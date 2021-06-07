@@ -173,10 +173,13 @@ public class PatientController implements Initializable {
 
 
     @FXML
-    private void saveNewPassword() {
+    private void saveNewPassword() throws MissingEntryException {
+        System.out.println(password.getText());
+        System.out.println(passwordConfirme.getText());
 
-        if(password.getText().equals(passwordConfirme.getText())){
+        if(password.getText().compareTo(passwordConfirme.getText())==0){
             patientMain.setPassword(password.getText());
+            patientService.modifyPassword(patientMain);
             outputMessage.setText("Senha alterada com suesso");
         }else{
             outputMessage.setText("A nova senha e a confirmação de senha devem ser iguais");

@@ -102,7 +102,7 @@
                <Text layoutX="130.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe a nova senha:" />
                <PasswordField fx:id="password" layoutX="130.0" layoutY="180.0" prefHeight="31.0" prefWidth="236.0" />
                <Text layoutX="130.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirme a senha:" />
-               <PasswordField fx:id="paswordConfirme" layoutX="130.0" layoutY="256.0" prefHeight="31.0" prefWidth="236.0" />
+               <PasswordField fx:id="passwordConfirme" layoutX="130.0" layoutY="256.0" prefHeight="31.0" prefWidth="236.0" />
                <Button layoutX="107.0" layoutY="377.0" mnemonicParsing="false" onAction="#saveNewPassword" prefHeight="40.0" prefWidth="129.0" styleClass="button-login" stylesheets="@../css/style.css" text="SALVAR" />
                <Button layoutX="284.0" layoutY="377.0" mnemonicParsing="false" onAction="#cancelPassword" prefHeight="40.0" prefWidth="129.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="Voltar" />
                <Text layoutX="166.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alteração da senha">

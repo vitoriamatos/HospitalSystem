@@ -4,6 +4,7 @@ package hospitalsystem.model.service;
 import hospitalsystem.exceptions.DuplicatedEntryException;
 import hospitalsystem.exceptions.MissingEntryException;
 import hospitalsystem.model.entities.Doctor;
+import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.interfaces.HospitalTopics;
 
 import java.io.Serializable;
@@ -67,6 +68,14 @@ public class DoctorService implements HospitalTopics<Doctor>, Serializable {
             doctor.setName(aux.getName());
             doctor.setPhoneNumber(aux.getPhoneNumber());
 
+        }
+    }
+
+    public void modifyPassword(Doctor aux) throws MissingEntryException{
+        if(find(aux.getEmail()) == null){
+            throw new MissingEntryException(aux);
+        } else {
+            doctors.get(aux.getEmail()).setPassword(aux.getPassword());
         }
     }
 

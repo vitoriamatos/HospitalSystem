@@ -85,6 +85,14 @@ public class PatientService implements HospitalTopics<Patient>, Serializable {
         }
     }
 
+    public void modifyPassword(Patient aux) throws MissingEntryException{
+        if(find(aux.getEmail()) == null){
+            throw new MissingEntryException(aux);
+        } else {
+            patients.get(aux.getEmail()).setPassword(aux.getPassword());
+        }
+    }
+
     @Override
     public void register(Patient patient) throws DuplicatedEntryException {
 
