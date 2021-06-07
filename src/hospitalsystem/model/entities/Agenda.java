@@ -11,17 +11,14 @@ public class Agenda implements Serializable {
         exams = new ArrayList<>();
     }
     
-    public void bookExam(String name, Doctor doctor) {
-       Exames exam = null;
-       exam.setName(name);
-       exam.setDoctor(doctor);  
+    public void bookExam(Exames exam) {
        exams.add(exam);
        System.out.println("Exame marcado.");
     }
     
-    public boolean cancelExam(String name, Doctor doctor) {
+    public boolean cancelExam(Exames exam) {
         for (int i = 0; i < exams.size(); i++) {
-            if (exams.get(i).getName().equals(name) && exams.get(i).getDoctor().equals(doctor)) {
+            if (exams.get(i).equals(exam)) {
                 exams.remove(exams.get(i));
                 System.out.println("Exame cancelado.");
                 return true;
@@ -30,9 +27,9 @@ public class Agenda implements Serializable {
         return false;
     }
     
-    public Exames checkExam(String name, Doctor doctor) {
+    public Exames checkExam(Exames exam) {
         for (int i = 0; i < exams.size(); i++) {
-            if (exams.get(i).getName().equals(name) && exams.get(i).getDoctor().equals(doctor)) {
+            if (exams.get(i).equals(exam)) {
                 return exams.get(i);
             }
         }
