@@ -3,6 +3,7 @@ package hospitalsystem.controller;
 import hospitalsystem.model.entities.Doctor;
 import hospitalsystem.model.entities.Exames;
 import hospitalsystem.model.entities.Urgency;
+import hospitalsystem.model.utils.ArquivoExames;
 import hospitalsystem.model.utils.Utils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,6 +36,11 @@ public class ExameController implements Initializable {
         //namePatient.setText(exameMain.getPatient().getName());
             System.out.println("Name Patient:" + exameMain.getPatient().getName() );
 
+    }
+
+    private void imprimir(){
+        ArquivoExames arquivoExames = new ArquivoExames();
+        arquivoExames.imprimirExame(exameMain);
     }
 
 
