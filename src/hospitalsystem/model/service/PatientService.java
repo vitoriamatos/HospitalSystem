@@ -93,6 +93,8 @@ public class PatientService implements HospitalTopics<Patient>, Serializable {
         }
     }
 
+
+
     @Override
     public void register(Patient patient) throws DuplicatedEntryException {
 

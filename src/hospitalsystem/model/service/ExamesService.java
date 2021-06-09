@@ -69,6 +69,16 @@ public class ExamesService implements HospitalTopics<Exames>, Serializable {
         }
     }
 
+    public void changeStatus(Exames aux) throws MissingEntryException{
+        if(find(aux.getCode()) == null){
+            throw new MissingEntryException(aux);
+        } else {
+         //exames.get(aux.getCode()).setStatus(aux.getStatus());
+
+            //patients.get(aux.getEmail()).setPassword(aux.getPassword());
+        }
+    }
+
     @Override
     public void register(Exames exame) throws DuplicatedEntryException {
         if (exames.contains(exame)) {
