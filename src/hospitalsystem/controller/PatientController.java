@@ -275,6 +275,10 @@ public class PatientController implements Initializable {
 
     @FXML
     private void findResultExame(){
+        if(positiveResult.isVisible() || negativeResult.isVisible()){
+            positiveResult.setVisible(false);
+            negativeResult.setVisible(false);
+        }
 
         Exames exames = examesService.find(exameFind.getText());
 
