@@ -6,6 +6,7 @@ import hospitalsystem.model.entities.Exames;
 import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.service.ExamesService;
 import hospitalsystem.model.service.PatientService;
+import hospitalsystem.model.utils.ArquivoExames;
 import hospitalsystem.model.utils.Backup;
 import hospitalsystem.model.utils.Utils;
 import javafx.collections.FXCollections;
@@ -16,10 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -52,6 +50,10 @@ public class PatientController implements Initializable {
     private Pane editPane;
     @FXML
     private Pane passwordPane;
+    @FXML
+    private Pane positiveResult;
+    @FXML
+    private Pane negativeResult;
     // ====== REGISTER DATA =======
     @FXML
     private Text registerOutput;
@@ -83,6 +85,15 @@ public class PatientController implements Initializable {
     private PasswordField passwordConfirme;
     @FXML
     private Text outputMessage;
+    //=======EXAME RESULT=============
+    @FXML
+    private TextField exameFind;
+    @FXML
+    private Text nameResult;
+    @FXML
+    private  Text typeResult;
+    @FXML
+    private TextArea exameResult;
 
 
     // ======= CONSTRUCTOR =======
@@ -203,17 +214,22 @@ public class PatientController implements Initializable {
     private void scheduleExame() {
         try {
 
+
             Exames exames = setExameAttributes(exame, time);
             Exception exception = null;
             try {
                 examesService.register(exames);
+
             } catch (DuplicatedEntryException e) {
                 exception = e;
             }
             utils.outputRegistrationResultToUser(registerExameOutput, exception, "Exame");
+            utils.showCodeExame(exames.getCode());
+            System.out.println("CODIGO EXAME "+ exames.getCode());
         } catch (NullPointerException e) {
             utils.showMissingFieldAlert();
         }
+
     }
 
     private Exames setExameAttributes(ComboBox<String> exame, ComboBox<String>time){
@@ -241,7 +257,40 @@ public class PatientController implements Initializable {
         exame.setItems(loadList);
     }
 
-   // ======= MODULES FUNCTIONS =======
+    //======= EXAME RESULT ============
+
+    @FXML
+    private void findResultExame(){
+
+        Exames exames = examesService.find(exameFind.getText());
+
+        if(exames != null){
+
+            if(exames.getStatus() == 1) {
+                positiveResult.setVisible(true);
+                nameResult.setText(exames.getPatient().getName());
+                typeResult.setText(exames.getName());
+                exameResult.setText(exames.getResult());
+            }else{
+
+                negativeResult.setVisible(true);
+            }
+
+        }else{
+            utils.showPacientNotFound("Exame");
+        }
+    }
+
+    @FXML
+    private  void imprimir(){
+
+        Exames exames = examesService.find(exameFind.getText());
+        ArquivoExames arquivoExames = new ArquivoExames();
+        arquivoExames.imprimirExame(exames);
+    }
+
+
+    // ======= MODULES FUNCTIONS =======
     private void showModule(ActionEvent event, String fxmlName) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/" + fxmlName + ".fxml"));
 

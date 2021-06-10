@@ -63,12 +63,25 @@ public class ExamesService implements HospitalTopics<Exames>, Serializable {
         if (exame== null) {
             throw new MissingEntryException(aux);
         } else {
-            exame.setName(aux.getName());
-           // exame.setPhoneNumber(aux.getPhoneNumber());
+            exame.setResult(aux.getResult());
+            exame.setStatus(aux.getStatus());
+            System.out.println("Status no service: "+ aux.getStatus());
 
         }
     }
 
+
+    public void modifyExame(Exames aux) throws MissingEntryException{
+        for(int i=0; i < exames.size(); i++){
+            if(exames.get(i).getCode() == aux.getCode()){
+                exames.get(i).setResult(aux.getResult());
+                exames.get(i).setStatus(aux.getStatus());
+                System.out.println("Status no service: "+ aux.getStatus());
+            }
+
+        }
+
+    }
     public void changeStatus(Exames aux) throws MissingEntryException{
         if(find(aux.getCode()) == null){
             throw new MissingEntryException(aux);

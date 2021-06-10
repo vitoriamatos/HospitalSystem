@@ -346,7 +346,7 @@ public class DoctorController implements Initializable {
                             System.out.println("selectedData: " + data.getPatient().getName());
 
                             ExameController ac = new ExameController(data, doctorMain);
-                            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/ExameView.fxml"));
+                            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/AgendaView.fxml"));
                             fxmlloader.setController(ac);
 
                             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

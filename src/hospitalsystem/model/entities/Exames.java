@@ -17,6 +17,7 @@ public class Exames implements Serializable {
     private Patient patient;
     private String patientName;
     private String patientCpf;
+    private String result;
 
 
 
@@ -78,5 +79,13 @@ public class Exames implements Serializable {
 
     public String getPatientCpf() {
         return patient.getCpf();
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 }

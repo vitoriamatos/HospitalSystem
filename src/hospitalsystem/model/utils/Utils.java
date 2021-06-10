@@ -173,6 +173,17 @@ public class Utils<T> {
         alert.show();
     }
 
+
+    public void showCodeExame(String code) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("CÓDIGO DO EXAME");
+        alert.setHeaderText("");
+        alert.setContentText("O Codigo do seu exame e: " + code +" . Use-o para consultar o resultado.");
+       // alert.initOwner(root.getScene().getWindow());
+        alert.show();
+    }
+
+
     // ======= HELPER METHODS =======
     public void showPane(String id) {
         panesList.forEach(pane -> pane.setVisible(id.equals(pane.getId())));
