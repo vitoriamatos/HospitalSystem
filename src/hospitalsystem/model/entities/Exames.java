@@ -11,6 +11,7 @@ public class Exames implements Serializable {
 
     private String name;
     private String time;
+    private String day;
     private String code;
     private int status;
     private Doctor doctor;
@@ -35,6 +36,14 @@ public class Exames implements Serializable {
 
     public String getTime() {
         return time;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
     }
 
     public void setTime(String time) {

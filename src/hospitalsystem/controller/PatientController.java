@@ -94,6 +94,8 @@ public class PatientController implements Initializable {
     private  Text typeResult;
     @FXML
     private TextArea exameResult;
+    @FXML
+    private TextField scheduleExameData;
 
 
     // ======= CONSTRUCTOR =======
@@ -215,7 +217,7 @@ public class PatientController implements Initializable {
         try {
 
 
-            Exames exames = setExameAttributes(exame, time);
+            Exames exames = setExameAttributes(exame, time,scheduleExameData);
             Exception exception = null;
             try {
                 examesService.register(exames);
@@ -232,7 +234,7 @@ public class PatientController implements Initializable {
 
     }
 
-    private Exames setExameAttributes(ComboBox<String> exame, ComboBox<String>time){
+    private Exames setExameAttributes(ComboBox<String> exame, ComboBox<String>time, TextField date){
         Random random = new Random();
 
         int numero = random.nextInt(100);
@@ -242,6 +244,7 @@ public class PatientController implements Initializable {
 
         exames.setName(exame.getSelectionModel().getSelectedItem().trim());
         exames.setTime(time.getSelectionModel().getSelectedItem().trim());
+        exames.setDay(date.getText());
         exames.setPatient(patientMain);
 
         return exames;
@@ -255,6 +258,21 @@ public class PatientController implements Initializable {
     private void loadExame(ComboBox<String> exame) {
         ObservableList<String> loadList = FXCollections.observableArrayList("Exame de Sangue", "Exame de Urina", "Raio X");
         exame.setItems(loadList);
+    }
+    @FXML
+    private void dateFormat() {
+        formatDate(scheduleExameData);
+    }
+    private void formatDate(TextField textField) {
+        formatTextField(textField, "##/##/####", "0123456789");
+    }
+
+    private void formatTextField(TextField textField, String mask, String validCharacters) {
+        academiccontrolsystem.utils.TextFieldFormatter textFieldFormatter = new academiccontrolsystem.utils.TextFieldFormatter();
+        textFieldFormatter.setMask(mask);
+        textFieldFormatter.setValidCharacters(validCharacters);
+        textFieldFormatter.setTextField(textField);
+        textFieldFormatter.formatter();
     }
 
     //======= EXAME RESULT ============
