@@ -92,8 +92,5 @@ public class ExameController implements Initializable {
         //findPatientName();
         examesService = ExamesService.getInstance();
 
-
-
-
     }
 }

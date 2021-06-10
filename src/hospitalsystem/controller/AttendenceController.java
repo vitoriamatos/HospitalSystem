@@ -61,13 +61,11 @@ public class AttendenceController implements Initializable {
     @FXML
     private Text registerOutput;
 
-
     // ======= CONSTRUCTOR ======
     public AttendenceController(Urgency urgencyMain, Doctor doctorMain) {
         this.urgencyMain = urgencyMain;
         this.doctorMain = doctorMain;
     }
-
     // ======= STANDART =======
     @FXML
     void back(ActionEvent event) throws IOException {
@@ -77,8 +75,6 @@ public class AttendenceController implements Initializable {
         prepararNovoAtendimento();
         callStage(event, fxmlloader);
     }
-
-
 
     // ======= MENU FUNCTIONS =======
     private void preencherAtendimento() {
@@ -120,17 +116,13 @@ public class AttendenceController implements Initializable {
                 } catch (DuplicatedEntryException e) {
                     registryException = e;
                 }
-
                 utils.outputRegistrationResultToUser(registerOutput, registryException, "Atendimento");
-
 
         } catch (NullPointerException e) {
             utils.showMissingFieldAlert();
         }
         urgencyService.remove(urgencyMain);
     }
-
-
 
     @FXML
     private void pescription() {
