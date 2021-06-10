@@ -45,7 +45,7 @@ public class LoginAdminController implements Initializable {
 
     @FXML
     void viewFind(ActionEvent event) throws IOException {
-        if(!email.equals(loginArea.getText()) && !senha.equals(passwordArea.getText())){
+        if(email.compareTo(loginArea.getText()) != 0 || senha.compareTo(passwordArea.getText()) != 0){
             utils.showPacientNotFound("Adm");
         }else {
             showModule(event, "AdminView");
