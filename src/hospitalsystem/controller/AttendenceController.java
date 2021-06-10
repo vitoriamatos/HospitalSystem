@@ -78,6 +78,8 @@ public class AttendenceController implements Initializable {
         callStage(event, fxmlloader);
     }
 
+
+
     // ======= MENU FUNCTIONS =======
     private void preencherAtendimento() {
         namePatientUrgency.setText(urgencyMain.getPatient().getName());
@@ -102,10 +104,11 @@ public class AttendenceController implements Initializable {
             Random random = new Random();
             int numero = random.nextInt(100);
             String code = String.valueOf(numero);
+            Urgency copy = urgencyMain;
 
             Attendance attendance = new Attendance(code);
-            attendance.setPatient(urgencyMain.getPatient());
-            attendance.setUrgency(urgencyMain);
+            attendance.setPatient(copy.getPatient());
+            attendance.setUrgency(copy);
             attendance.setDoctor(doctorMain);
             attendance.setReport(report.getText().trim());
             attendance.setPrescription(prescription.getText().trim());
@@ -117,14 +120,17 @@ public class AttendenceController implements Initializable {
                 } catch (DuplicatedEntryException e) {
                     registryException = e;
                 }
-                urgencyService.remove(urgencyMain.getPatient().getCpf());
+
                 utils.outputRegistrationResultToUser(registerOutput, registryException, "Atendimentp");
+
 
         } catch (NullPointerException e) {
             utils.showMissingFieldAlert();
         }
-
+        urgencyService.remove(urgencyMain);
     }
+
+
 
     @FXML
     private void pescription() {

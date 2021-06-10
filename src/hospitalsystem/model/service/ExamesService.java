@@ -86,9 +86,7 @@ public class ExamesService implements HospitalTopics<Exames>, Serializable {
         if(find(aux.getCode()) == null){
             throw new MissingEntryException(aux);
         } else {
-         //exames.get(aux.getCode()).setStatus(aux.getStatus());
 
-            //patients.get(aux.getEmail()).setPassword(aux.getPassword());
         }
     }
 
@@ -104,8 +102,13 @@ public class ExamesService implements HospitalTopics<Exames>, Serializable {
     }
 
     @Override
-    public void remove(String cpf) {
-        exames.remove(new Patient(cpf));
+    public void remove(Exames aux) {
+        for (int i = 0; i < exames.size(); i++) {
+            if (exames.get(i).getCode().equals(aux.getCode())) {
+                exames.remove(i);
+                System.out.println("Exame cancelado.");
+               break;
+            }
+        }
     }
-
 }

@@ -80,8 +80,9 @@ public class AttendanceService implements HospitalTopics<Attendance>, Serializab
     }
 
     @Override
-    public void remove(String code) {
-        attendancies.remove(new Attendance(code));
+    public void remove(Attendance attendance) {
+
+        //attendancies.remove(new Attendance(code));
     }
 
 }

@@ -80,8 +80,8 @@ public class SolicitationService implements HospitalTopics<Patient>, Serializabl
     }
 
     @Override
-    public void remove(String cpf) {
-        patients.remove(new Patient(cpf));
+    public void remove(Patient aux) {
+
     }
 
 }

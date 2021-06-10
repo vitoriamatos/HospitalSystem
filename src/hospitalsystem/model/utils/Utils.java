@@ -150,7 +150,7 @@ public class Utils<T> {
         alert.setTitle("CAMPOS EM BRANCO!");
         alert.setHeaderText("");
         alert.setContentText("Por favor, preencha todos os campos.");
-        alert.initOwner(root.getScene().getWindow());
+       // alert.initOwner(root.getScene().getWindow());
         alert.show();
     }
 

@@ -60,8 +60,8 @@ public interface HospitalTopics<T> {
      * Remove an object from the base.
      * </p>
      *
-     * @param id the target object identification key
+     * @param data the target object identification key
      */
-    void remove(String id);
+    void remove(T data);
 
 }

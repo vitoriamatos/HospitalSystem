@@ -109,8 +109,10 @@ public class PatientService implements HospitalTopics<Patient>, Serializable {
     }
 
     @Override
-    public void remove(String email) {
-        patients.remove(email);
+        public void remove(Patient email) {
+
+
+
     }
 
 }

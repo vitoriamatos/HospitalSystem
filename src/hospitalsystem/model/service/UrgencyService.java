@@ -86,8 +86,14 @@ public class UrgencyService implements HospitalTopics<Urgency>, Serializable {
     }
 
     @Override
-    public void remove(String code) {
-        urgencies.remove(new Urgency(code));
+    public void remove(Urgency aux) {
+        for (int i = 0; i < urgencies.size(); i++) {
+            if (urgencies.get(i).getCode() == aux.getCode()) {
+                urgencies.remove(i);
+                System.out.println("Exame cancelado.");
+                break;
+            }
+        }
     }
 
 }

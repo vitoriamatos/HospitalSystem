@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -131,21 +132,32 @@
    <Pane fx:id="examePane" layoutX="184.0" layoutY="5.0" prefHeight="671.0" prefWidth="634.0" style="-fx-background-color: #f5f5f5;">
       <children>
          <Text layoutX="235.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONSULTAR EXAME" />
-         <Button layoutX="350.0" layoutY="181.0" mnemonicParsing="false" onAction="#findResultExame" text="Buscar" />
-         <TextField fx:id="exameFind" layoutX="150.0" layoutY="181.0" prefHeight="25.0" prefWidth="200.0" promptText="ID do exame" />
+         <Button layoutX="350.0" layoutY="155.0" mnemonicParsing="false" onAction="#findResultExame" prefHeight="40.0" prefWidth="95.0" styleClass="button-login" stylesheets="@../css/style.css" text="Buscar" />
+         <TextField fx:id="exameFind" layoutX="150.0" layoutY="155.0" prefHeight="40.0" prefWidth="200.0" promptText="ID do exame" />
          <Pane fx:id="positiveResult" layoutX="3.0" layoutY="256.0" prefHeight="394.0" prefWidth="628.0" style="-fx-background-color: #f5f5f5;" visible="false">
             <children>
                <Text layoutX="118.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
-               <TextArea fx:id="exameResult" layoutX="36.0" layoutY="117.0" prefHeight="187.0" prefWidth="522.0" />
-               <Button layoutX="225.0" layoutY="334.0" mnemonicParsing="false" onAction="#imprimir" prefHeight="38.0" prefWidth="145.0" styleClass="button-login" stylesheets="@../css/style.css" text="IMPRIMIR" />
+               <TextArea fx:id="exameResult" disable="true" layoutX="36.0" layoutY="117.0" prefHeight="187.0" prefWidth="522.0" />
+               <Button layoutX="136.0" layoutY="334.0" mnemonicParsing="false" onAction="#imprimir" prefHeight="38.0" prefWidth="145.0" styleClass="button-login" stylesheets="@../css/style.css" text="IMPRIMIR" />
                <Text fx:id="nameResult" layoutX="168.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="n" />
                <Text layoutX="318.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo:" />
                <Text fx:id="typeResult" layoutX="370.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+               <Label layoutX="7.0" layoutY="-2.0" prefHeight="45.0" prefWidth="584.0" style="-fx-background-color: #347ea8;" />
+               <Text fill="WHITE" layoutX="277.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESULTADO">
+                  <font>
+                     <Font name="Segoe UI Light" size="14.0" />
+                  </font>
+               </Text>
+               <Button layoutX="320.0" layoutY="331.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="145.0" styleClass="cancel-button" stylesheets="@../css/style.css" text="FECHAR" />
             </children>
          </Pane>
          <Pane fx:id="negativeResult" layoutX="14.0" layoutY="279.0" prefHeight="384.0" prefWidth="610.0" visible="false">
             <children>
-               <Text fx:id="megativeResult" layoutX="258.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exame Não está pronto" />
+               <Text fx:id="megativeResult" layoutX="167.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exame Não está pronto. Aguarde a liberação do médico" wrappingWidth="314.9999999999999">
+                  <font>
+                     <Font name="Segoe UI Light" size="22.0" />
+                  </font>
+               </Text>
             </children>
          </Pane>
          <Text fx:id="outputResultMessage" layoutX="266.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" />

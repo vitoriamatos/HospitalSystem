@@ -239,6 +239,8 @@ public class DoctorController implements Initializable {
         addButtonToTable();
     }
 
+
+
     private void addButtonToTable() {
         TableColumn<Urgency, Void> colBtn = new TableColumn("Atendimento");
 

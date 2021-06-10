@@ -7,6 +7,7 @@ import hospitalsystem.model.entities.Doctor;
 import hospitalsystem.model.entities.Patient;
 import hospitalsystem.model.interfaces.HospitalTopics;
 
+import javax.print.Doc;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -91,8 +92,8 @@ public class DoctorService implements HospitalTopics<Doctor>, Serializable {
     }
 
     @Override
-    public void remove(String email) {
-        doctors.remove(email);
+    public void remove(Doctor aux) {
+        //doctors.remove(email);
     }
 
 }
