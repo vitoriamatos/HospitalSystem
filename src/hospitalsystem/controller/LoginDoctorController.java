@@ -79,8 +79,4 @@ public class LoginDoctorController implements Initializable {
     }
 
 
-    // ======= HELPER METHODS =======
-
-
-
 }

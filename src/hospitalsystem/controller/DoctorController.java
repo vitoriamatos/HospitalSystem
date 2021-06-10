@@ -1,11 +1,9 @@
 package hospitalsystem.controller;
 
-import hospitalsystem.exceptions.DuplicatedEntryException;
 import hospitalsystem.exceptions.MissingEntryException;
 import hospitalsystem.model.entities.*;
 import hospitalsystem.model.service.DoctorService;
 import hospitalsystem.model.service.ExamesService;
-import hospitalsystem.model.service.PatientService;
 import hospitalsystem.model.service.UrgencyService;
 import hospitalsystem.model.utils.Backup;
 import hospitalsystem.model.utils.Utils;
@@ -348,7 +346,7 @@ public class DoctorController implements Initializable {
                             System.out.println("selectedData: " + data.getPatient().getName());
 
                             ExameController ac = new ExameController(data, doctorMain);
-                            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/AgendaView.fxml"));
+                            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/ExameView.fxml"));
                             fxmlloader.setController(ac);
 
                             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

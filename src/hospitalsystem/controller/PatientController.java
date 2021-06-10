@@ -97,7 +97,6 @@ public class PatientController implements Initializable {
     @FXML
     private TextField scheduleExameData;
 
-
     // ======= CONSTRUCTOR =======
     public PatientController(Patient patientMain) {
         this.patientMain = patientMain;
@@ -128,7 +127,6 @@ public class PatientController implements Initializable {
     }
 
     // ======= PATIENTS FUNCTIONS =======
-
     @FXML
     private void editData(){
 
@@ -138,7 +136,6 @@ public class PatientController implements Initializable {
         cpfRegister.editableProperty().setValue(true);
         phoneNumberRegister.editableProperty().setValue(true);
         emailRegister.editableProperty().setValue(true);
-
 
     }
 
@@ -183,7 +180,6 @@ public class PatientController implements Initializable {
         emailRegister.setText(patientMain.getEmail());
 
     }
-
 
     @FXML
     private void saveNewPassword() throws MissingEntryException {

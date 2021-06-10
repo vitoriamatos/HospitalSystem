@@ -37,7 +37,6 @@ public class LoginPatientController implements Initializable {
 
 
     // ======= STANDART =======
-
     @FXML
     private void back(ActionEvent event) throws IOException {
         utils.back(root, event);
@@ -63,7 +62,6 @@ public class LoginPatientController implements Initializable {
             }
     }
 
-
     public void callStage(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -72,61 +70,12 @@ public class LoginPatientController implements Initializable {
 
         stage.show();
     }
-/*
-    @FXML
-    void viewFind(ActionEvent event) throws IOException {
 
-    Patient patient = utils.search(patientService, passwordArea);
-
-        if(patient != null){
-            PatientController pc = new PatientController(patient);
-            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/PatientView.fxml"));
-            fxmlloader.setController(pc);
-
-
-
-            try {
-                //pc.setContent((Node) fxmlloader.load());
-                 showModule(event, fxmlloader );
-            } catch (IOException ex) {
-                System.out.println(ex);
-            }
-
-        }else{
-            utils.showPacientNotFound("Paciente");
-        }
-    }
-
-
-
-
-
-
-    // ======= PATIENTS FUNCTIONS =======
-
-    //FIND
-
-
-    // ======= MODULES FUNCTIONS =======
-    private void showModule(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
-
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        stage.setScene(new Scene(fxmlloader.load()));
-        stage.show();
-    }
-*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Backup b = new Backup();
         b.restore();
         patientService = PatientService.getInstance();
     }
-
-
-    // ======= HELPER METHODS =======
-
-
 
 }

@@ -17,7 +17,7 @@ public class AdminController {
 
     @FXML
     private AnchorPane root;
-    // ======= MODULES FUNCTIONS =======
+
     @FXML
     void doctorModule(ActionEvent event) throws IOException {
         showModule(event, "AdminDoctorView");
@@ -33,7 +33,6 @@ public class AdminController {
         utils.back(root, event);
     }
 
-
     private void showModule(ActionEvent event, String fxmlName) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../view/fxmls/" + fxmlName + ".fxml"));
 
@@ -42,10 +41,6 @@ public class AdminController {
         stage.setScene(new Scene(fxmlloader.load()));
         stage.show();
     }
-
-
-    // ======= HELPER METHODS =======
-
 
 
 }

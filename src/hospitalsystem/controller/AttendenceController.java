@@ -121,7 +121,7 @@ public class AttendenceController implements Initializable {
                     registryException = e;
                 }
 
-                utils.outputRegistrationResultToUser(registerOutput, registryException, "Atendimentp");
+                utils.outputRegistrationResultToUser(registerOutput, registryException, "Atendimento");
 
 
         } catch (NullPointerException e) {
@@ -165,7 +165,5 @@ public class AttendenceController implements Initializable {
 
         urgencyService = UrgencyService.getInstance();
         attendanceService = AttendanceService.getInstance();
-
-
     }
 }

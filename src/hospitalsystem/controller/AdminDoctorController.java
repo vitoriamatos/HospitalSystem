@@ -252,7 +252,7 @@ public class AdminDoctorController  implements Initializable {
         List<Pane> panesList = new ArrayList<>(
                 Arrays.asList( homePane,registerPane, listAllPane));
         utils.setPanesList(panesList);
-        //showRegisterPane();
+
         showHomePane();
         // Load instance
         Backup b = new Backup();

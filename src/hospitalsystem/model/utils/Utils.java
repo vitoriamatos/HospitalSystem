@@ -124,7 +124,6 @@ public class Utils<T> {
         alert.setTitle("Cadastro deletado");
         alert.setHeaderText("");
         alert.setContentText(toTitleCase(entity) + " deletado(a)");
-        alert.initOwner(root.getScene().getWindow());
         alert.show();
     }
     public void showPacientNotFound(String entity) {
@@ -132,7 +131,6 @@ public class Utils<T> {
         alert.setTitle("Usuario nao encontrado");
         alert.setHeaderText("");
         alert.setContentText(toTitleCase(entity) + " nao encontrado, favor solicitar cadastro.");
-        //alert.initOwner(root.getScene().getWindow());
         alert.show();
     }
 
@@ -141,7 +139,6 @@ public class Utils<T> {
         alert.setTitle("Informacoes invalidas");
         alert.setHeaderText("");
         alert.setContentText(invalidValues);
-        alert.initOwner(root.getScene().getWindow());
         alert.show();
     }
 
@@ -150,7 +147,6 @@ public class Utils<T> {
         alert.setTitle("CAMPOS EM BRANCO!");
         alert.setHeaderText("");
         alert.setContentText("Por favor, preencha todos os campos.");
-       // alert.initOwner(root.getScene().getWindow());
         alert.show();
     }
 
@@ -173,16 +169,20 @@ public class Utils<T> {
         alert.show();
     }
 
-
     public void showCodeExame(String code) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("CÓDIGO DO EXAME");
         alert.setHeaderText("");
         alert.setContentText("O Codigo do seu exame e: " + code +" . Use-o para consultar o resultado.");
-       // alert.initOwner(root.getScene().getWindow());
         alert.show();
     }
-
+    public void showSendExame() {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("CÓDIGO DO EXAME");
+        alert.setHeaderText("");
+        alert.setContentText("Resultado encaminhado para o paciente");
+        alert.show();
+    }
 
     // ======= HELPER METHODS =======
     public void showPane(String id) {

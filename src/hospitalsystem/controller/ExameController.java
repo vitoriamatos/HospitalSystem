@@ -56,10 +56,8 @@ public class ExameController implements Initializable {
                 exameMain.setResult(exameResult.getText());
                 //Method for service save
                 examesService.modifyExame(exameMain);
-
+                utils.showSendExame();
         }
-
-
 
     @FXML
     void back(ActionEvent event) throws IOException {
@@ -70,8 +68,6 @@ public class ExameController implements Initializable {
         fxmlloader.setController(pc);
         callStage(event, fxmlloader);
     }
-
-
 
     // ======= MODULES FUNCTIONS =======
     public void callStage(ActionEvent event, FXMLLoader fxmlloader) throws IOException {
@@ -89,6 +85,7 @@ public class ExameController implements Initializable {
 
         System.out.println(exameMain.getPatient().getName());
         namePatient.setText(exameMain.getPatient().getName());
+        exameType.setText(exameMain.getName());
 
         // Pass window root pane
         utils.setRoot(root);
