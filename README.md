@@ -15,12 +15,9 @@ Projeto de um sistemaa hospitalar, criado para a disciplina de Engenharia de Sof
 
 ## Instalação
 
- *Clone este repositório
+      # Clone este repositório
       
-      $ git clone https://github.com/vitoriamatos/Sistema-Hospitalar.git
-      
-      # Acesse a pasta do projeto no terminal/cmd e em seguida acesse o subdiretorio public
-      $ cd public
+      $ git clone https://github.com/vitoriamatos/HospitalSystem.git
       
 Ao clonar o repositório, abra o diretório do projeto através da IDE de sua preferencia e execute a aplicação.
 
