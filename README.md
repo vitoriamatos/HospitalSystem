@@ -16,6 +16,7 @@ Projeto de um sistemaa hospitalar, criado para a disciplina de Engenharia de Sof
 ## Instalação
 
  *Clone este repositório
+      
       $ git clone https://github.com/vitoriamatos/Sistema-Hospitalar.git
       
       # Acesse a pasta do projeto no terminal/cmd e em seguida acesse o subdiretorio public
@@ -26,3 +27,5 @@ Ao clonar o repositório, abra o diretório do projeto através da IDE de sua pr
 ## Como usar
 
 O projeto já vem com um úsuario ADM criado, para acessar utilize o email adm@email.com e a senha: 1233456
+
+O projeto salva os dados em um arquivo de backup. Não foi utilizado nenhum tipo de banco de dados para esta aplicação. 
